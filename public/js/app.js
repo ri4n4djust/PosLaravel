@@ -38459,73 +38459,74 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    { staticClass: "card-body" },
-    [
-      _c(
-        "router-link",
-        {
-          staticClass: "btn btn-md btn-success",
-          attrs: { to: { name: "create" } }
-        },
-        [_vm._v("TAMBAH POST")]
-      ),
-      _vm._v(" "),
-      _c("table", { staticClass: "table table-hover table-bordered" }, [
-        _vm._m(0),
-        _vm._v(" "),
+  return _c("div", { staticClass: "card-body" }, [
+    _c(
+      "h3",
+      [
         _c(
-          "tbody",
-          _vm._l(_vm.posts, function(post, index) {
-            return _c("tr", { key: post.id }, [
-              _c("td", [_vm._v(_vm._s(post.nmBarang))]),
-              _vm._v(" "),
-              _c("td", [_vm._v(_vm._s(post.hrgPokok))]),
-              _vm._v(" "),
-              _c("td", [_vm._v(_vm._s(post.hrgJual))]),
-              _vm._v(" "),
-              _c("td", [_vm._v(_vm._s(post.stkBarang))]),
-              _vm._v(" "),
-              _c("td", [_vm._v(_vm._s(post.deskripsi))]),
-              _vm._v(" "),
-              _c(
-                "td",
-                { staticClass: "text-center" },
-                [
-                  _c(
-                    "router-link",
-                    {
-                      staticClass: "btn btn-sm btn-primary",
-                      attrs: { to: { name: "edit", params: { id: post.id } } }
-                    },
-                    [_vm._v("EDIT")]
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "button",
-                    {
-                      staticClass: "btn btn-sm btn-danger",
-                      on: {
-                        click: function($event) {
-                          $event.preventDefault()
-                          return _vm.PostDelete(post.id, index)
-                        }
-                      }
-                    },
-                    [_vm._v("HAPUS")]
-                  )
-                ],
-                1
-              )
-            ])
-          }),
-          0
+          "router-link",
+          {
+            staticClass: "btn btn-md btn-success",
+            attrs: { to: { name: "create" } }
+          },
+          [_vm._v("TAMBAH POST")]
         )
-      ])
-    ],
-    1
-  )
+      ],
+      1
+    ),
+    _vm._v(" "),
+    _c("table", { staticClass: "table table-hover table-bordered" }, [
+      _vm._m(0),
+      _vm._v(" "),
+      _c(
+        "tbody",
+        _vm._l(_vm.posts, function(post, index) {
+          return _c("tr", { key: post.id }, [
+            _c("td", [_vm._v(_vm._s(post.nmBarang))]),
+            _vm._v(" "),
+            _c("td", [_vm._v(_vm._s(post.hrgPokok))]),
+            _vm._v(" "),
+            _c("td", [_vm._v(_vm._s(post.hrgJual))]),
+            _vm._v(" "),
+            _c("td", [_vm._v(_vm._s(post.stkBarang))]),
+            _vm._v(" "),
+            _c("td", [_vm._v(_vm._s(post.deskripsi))]),
+            _vm._v(" "),
+            _c(
+              "td",
+              { staticClass: "text-center" },
+              [
+                _c(
+                  "router-link",
+                  {
+                    staticClass: "btn btn-sm btn-primary",
+                    attrs: { to: { name: "edit", params: { id: post.id } } }
+                  },
+                  [_vm._v("EDIT")]
+                ),
+                _vm._v(" "),
+                _c(
+                  "button",
+                  {
+                    staticClass: "btn btn-sm btn-danger",
+                    on: {
+                      click: function($event) {
+                        $event.preventDefault()
+                        return _vm.PostDelete(post.id, index)
+                      }
+                    }
+                  },
+                  [_vm._v("HAPUS")]
+                )
+              ],
+              1
+            )
+          ])
+        }),
+        0
+      )
+    ])
+  ])
 }
 var staticRenderFns = [
   function() {
