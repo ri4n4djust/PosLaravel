@@ -38492,64 +38492,57 @@ var render = function() {
         [_vm._v("TAMBAH POST")]
       ),
       _vm._v(" "),
-      _c(
-        "table",
-        {
-          staticClass: "table table-hover table-bordered",
-          attrs: { id: "example1" }
-        },
-        [
-          _vm._m(0),
-          _vm._v(" "),
-          _c(
-            "tbody",
-            _vm._l(_vm.posts, function(post, index) {
-              return _c("tr", { key: post.id }, [
-                _c("td", [_vm._v(_vm._s(post.nmBarang))]),
-                _vm._v(" "),
-                _c("td", [_vm._v(_vm._s(post.hrgPokok))]),
-                _vm._v(" "),
-                _c("td", [_vm._v(_vm._s(post.hrgJual))]),
-                _vm._v(" "),
-                _c("td", [_vm._v(_vm._s(post.stkBarang))]),
-                _vm._v(" "),
-                _c("td", [_vm._v(_vm._s(post.deskripsi))]),
-                _vm._v(" "),
-                _c(
-                  "td",
-                  { staticClass: "text-center" },
-                  [
-                    _c(
-                      "router-link",
-                      {
-                        staticClass: "btn btn-sm btn-primary",
-                        attrs: { to: { name: "edit", params: { id: post.id } } }
-                      },
-                      [_vm._v("EDIT")]
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "button",
-                      {
-                        staticClass: "btn btn-sm btn-danger",
-                        on: {
-                          click: function($event) {
-                            $event.preventDefault()
-                            return _vm.PostDelete(post.id, index)
-                          }
+      _c("table", { staticClass: "table table-hover table-bordered" }, [
+        _vm._m(0),
+        _vm._v(" "),
+        _c(
+          "tbody",
+          _vm._l(_vm.posts, function(post, index) {
+            return _c("tr", { key: post.id }, [
+              _c("td", [_vm._v(_vm._s(post.nmBarang))]),
+              _vm._v(" "),
+              _c("td", [_vm._v(_vm._s(post.hrgPokok))]),
+              _vm._v(" "),
+              _c("td", [_vm._v(_vm._s(post.hrgJual))]),
+              _vm._v(" "),
+              _c("td", [_vm._v(_vm._s(post.stkBarang))]),
+              _vm._v(" "),
+              _c("td", [_vm._v(_vm._s(post.deskripsi))]),
+              _vm._v(" "),
+              _c(
+                "td",
+                { staticClass: "text-center" },
+                [
+                  _c(
+                    "router-link",
+                    {
+                      staticClass: "btn btn-sm btn-primary",
+                      attrs: { to: { name: "edit", params: { id: post.id } } }
+                    },
+                    [_vm._v("EDIT")]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "button",
+                    {
+                      staticClass: "btn btn-sm btn-danger",
+                      on: {
+                        click: function($event) {
+                          $event.preventDefault()
+                          return _vm.PostDelete(post.id, index)
                         }
-                      },
-                      [_vm._v("HAPUS")]
-                    )
-                  ],
-                  1
-                )
-              ])
-            }),
-            0
-          )
-        ]
-      )
+                      }
+                    },
+                    [_vm._v("HAPUS")]
+                  )
+                ],
+                1
+              )
+            ])
+          }),
+          0
+        )
+      ])
     ],
     1
   )
@@ -54230,8 +54223,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /Users/max/Documents/Web/pos/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /Users/max/Documents/Web/pos/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /Users/max/Documents/Web/PosSale/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /Users/max/Documents/Web/PosSale/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
