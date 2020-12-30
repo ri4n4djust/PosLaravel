@@ -1,8 +1,5 @@
 <template>
-    <div class="container mt-3">
-        <div class="row justify-content-center">
-            <div class="col-md-12">
-                <div class="card card-default">
+    <div class="mt-3">
                     <div class="card-header">EDIT POST</div>
 
                     <div class="card-body">
@@ -69,9 +66,7 @@
 
                     </div>
                 </div>
-            </div>
-        </div>
-    </div>
+
 </template>
 
 <script>
