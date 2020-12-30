@@ -1,9 +1,9 @@
 <template>
 
                     <div class="card-body">
+                        <h3>
                         <router-link :to="{ name: 'create' }" class="btn btn-md btn-success">TAMBAH POST</router-link>
-
-                        
+                        </h3>
                             <table class="table table-hover table-bordered">
                                 <thead>
                                 <tr>
