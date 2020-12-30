@@ -4,7 +4,7 @@
                         <router-link :to="{ name: 'create' }" class="btn btn-md btn-success">TAMBAH POST</router-link>
 
                         
-                            <table id="example1" class="table table-hover table-bordered">
+                            <table class="table table-hover table-bordered">
                                 <thead>
                                 <tr>
                                     <th>Nama Barang</th>
