@@ -45,8 +45,8 @@ class salesController extends Controller
         } else {
             //$file = $request->file('gbrBarang');
 
-            $imageName = time().'.'.$request->name->getClientOriginalExtension();
-            $request->image->move(public_path('images'), $imageName);
+            //$imageName = time().'.'.$request->name->getClientOriginalExtension();
+            //$request->image->move(public_path('images'), $imageName);
 
             $post = Sale::create([
                 'nmBarang'     => $request->input('nmBarang'),
