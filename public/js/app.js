@@ -2121,11 +2121,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -38177,255 +38172,249 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "container mt-3" }, [
-    _c("div", { staticClass: "row justify-content-center" }, [
-      _c("div", { staticClass: "col-md-12" }, [
-        _c("div", { staticClass: "card card-default" }, [
-          _c("div", { staticClass: "card-header" }, [_vm._v("EDIT POST")]),
-          _vm._v(" "),
-          _c("div", { staticClass: "card-body" }, [
-            _c(
-              "form",
-              {
-                on: {
-                  submit: function($event) {
-                    $event.preventDefault()
-                    return _vm.PostUpdate($event)
-                  }
+  return _c("div", { staticClass: "mt-3" }, [
+    _c("div", { staticClass: "card-header" }, [_vm._v("EDIT POST")]),
+    _vm._v(" "),
+    _c("div", { staticClass: "card-body" }, [
+      _c(
+        "form",
+        {
+          on: {
+            submit: function($event) {
+              $event.preventDefault()
+              return _vm.PostUpdate($event)
+            }
+          }
+        },
+        [
+          _c("div", { staticClass: "form-group" }, [
+            _c("label", [_vm._v("TITLE")]),
+            _vm._v(" "),
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.post.nmBarang,
+                  expression: "post.nmBarang"
                 }
-              },
-              [
-                _c("div", { staticClass: "form-group" }, [
-                  _c("label", [_vm._v("TITLE")]),
-                  _vm._v(" "),
-                  _c("input", {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.post.nmBarang,
-                        expression: "post.nmBarang"
-                      }
-                    ],
-                    staticClass: "form-control",
-                    attrs: { type: "text", placeholder: "Masukkan Title" },
-                    domProps: { value: _vm.post.nmBarang },
-                    on: {
-                      input: function($event) {
-                        if ($event.target.composing) {
-                          return
-                        }
-                        _vm.$set(_vm.post, "nmBarang", $event.target.value)
-                      }
-                    }
-                  }),
-                  _vm._v(" "),
-                  _vm.validation.nmBarang
-                    ? _c("div", [
-                        _c(
-                          "div",
-                          {
-                            staticClass: "alert alert-danger mt-1",
-                            attrs: { role: "alert" }
-                          },
-                          [
-                            _vm._v(
-                              "\n                                    " +
-                                _vm._s(_vm.validation.nmBarang[0]) +
-                                "\n                                "
-                            )
-                          ]
-                        )
-                      ])
-                    : _vm._e()
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "form-group" }, [
-                  _c("label", [_vm._v("Harga Pokok")]),
-                  _vm._v(" "),
-                  _c("input", {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.post.hrgPokok,
-                        expression: "post.hrgPokok"
-                      }
-                    ],
-                    staticClass: "form-control",
-                    attrs: { type: "text", placeholder: "Harga Pokok" },
-                    domProps: { value: _vm.post.hrgPokok },
-                    on: {
-                      input: function($event) {
-                        if ($event.target.composing) {
-                          return
-                        }
-                        _vm.$set(_vm.post, "hrgPokok", $event.target.value)
-                      }
-                    }
-                  }),
-                  _vm._v(" "),
-                  _vm.validation.hrgPokok
-                    ? _c("div", [
-                        _c(
-                          "div",
-                          {
-                            staticClass: "alert alert-danger mt-1",
-                            attrs: { role: "alert" }
-                          },
-                          [
-                            _vm._v(
-                              "\n                                    " +
-                                _vm._s(_vm.validation.hrgPokok[0]) +
-                                "\n                                "
-                            )
-                          ]
-                        )
-                      ])
-                    : _vm._e()
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "form-group" }, [
-                  _c("label", [_vm._v("Harga Jual")]),
-                  _vm._v(" "),
-                  _c("input", {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.post.hrgJual,
-                        expression: "post.hrgJual"
-                      }
-                    ],
-                    staticClass: "form-control",
-                    attrs: { type: "text", placeholder: "Harga Jual" },
-                    domProps: { value: _vm.post.hrgJual },
-                    on: {
-                      input: function($event) {
-                        if ($event.target.composing) {
-                          return
-                        }
-                        _vm.$set(_vm.post, "hrgJual", $event.target.value)
-                      }
-                    }
-                  }),
-                  _vm._v(" "),
-                  _vm.validation.hrgJual
-                    ? _c("div", [
-                        _c(
-                          "div",
-                          {
-                            staticClass: "alert alert-danger mt-1",
-                            attrs: { role: "alert" }
-                          },
-                          [
-                            _vm._v(
-                              "\n                                    " +
-                                _vm._s(_vm.validation.hrgJual[0]) +
-                                "\n                                "
-                            )
-                          ]
-                        )
-                      ])
-                    : _vm._e()
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "form-group" }, [
-                  _c("label", [_vm._v("Stok Barang")]),
-                  _vm._v(" "),
-                  _c("input", {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.post.stkBarang,
-                        expression: "post.stkBarang"
-                      }
-                    ],
-                    staticClass: "form-control",
-                    attrs: { type: "text", placeholder: "Stok Barang" },
-                    domProps: { value: _vm.post.stkBarang },
-                    on: {
-                      input: function($event) {
-                        if ($event.target.composing) {
-                          return
-                        }
-                        _vm.$set(_vm.post, "stkBarang", $event.target.value)
-                      }
-                    }
-                  }),
-                  _vm._v(" "),
-                  _vm.validation.stkBarang
-                    ? _c("div", [
-                        _c(
-                          "div",
-                          {
-                            staticClass: "alert alert-danger mt-1",
-                            attrs: { role: "alert" }
-                          },
-                          [
-                            _vm._v(
-                              "\n                                    " +
-                                _vm._s(_vm.validation.stkBarang[0]) +
-                                "\n                                "
-                            )
-                          ]
-                        )
-                      ])
-                    : _vm._e()
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "form-group" }, [
-                  _c("label", [_vm._v("Deskripsi")]),
-                  _vm._v(" "),
-                  _c("textarea", {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.post.deskripsi,
-                        expression: "post.deskripsi"
-                      }
-                    ],
-                    staticClass: "form-control",
-                    attrs: { rows: "5", placeholder: "Masukkan Konten" },
-                    domProps: { value: _vm.post.deskripsi },
-                    on: {
-                      input: function($event) {
-                        if ($event.target.composing) {
-                          return
-                        }
-                        _vm.$set(_vm.post, "deskripsi", $event.target.value)
-                      }
-                    }
-                  }),
-                  _vm._v(" "),
-                  _vm.validation.deskripsi
-                    ? _c("div", [
-                        _c(
-                          "div",
-                          {
-                            staticClass: "alert alert-danger mt-1",
-                            attrs: { role: "alert" }
-                          },
-                          [
-                            _vm._v(
-                              "\n                                    " +
-                                _vm._s(_vm.validation.deskripsi[0]) +
-                                "\n                                "
-                            )
-                          ]
-                        )
-                      ])
-                    : _vm._e()
-                ]),
-                _vm._v(" "),
-                _vm._m(0)
-              ]
-            )
-          ])
-        ])
-      ])
+              ],
+              staticClass: "form-control",
+              attrs: { type: "text", placeholder: "Masukkan Title" },
+              domProps: { value: _vm.post.nmBarang },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.$set(_vm.post, "nmBarang", $event.target.value)
+                }
+              }
+            }),
+            _vm._v(" "),
+            _vm.validation.nmBarang
+              ? _c("div", [
+                  _c(
+                    "div",
+                    {
+                      staticClass: "alert alert-danger mt-1",
+                      attrs: { role: "alert" }
+                    },
+                    [
+                      _vm._v(
+                        "\n                                    " +
+                          _vm._s(_vm.validation.nmBarang[0]) +
+                          "\n                                "
+                      )
+                    ]
+                  )
+                ])
+              : _vm._e()
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "form-group" }, [
+            _c("label", [_vm._v("Harga Pokok")]),
+            _vm._v(" "),
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.post.hrgPokok,
+                  expression: "post.hrgPokok"
+                }
+              ],
+              staticClass: "form-control",
+              attrs: { type: "text", placeholder: "Harga Pokok" },
+              domProps: { value: _vm.post.hrgPokok },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.$set(_vm.post, "hrgPokok", $event.target.value)
+                }
+              }
+            }),
+            _vm._v(" "),
+            _vm.validation.hrgPokok
+              ? _c("div", [
+                  _c(
+                    "div",
+                    {
+                      staticClass: "alert alert-danger mt-1",
+                      attrs: { role: "alert" }
+                    },
+                    [
+                      _vm._v(
+                        "\n                                    " +
+                          _vm._s(_vm.validation.hrgPokok[0]) +
+                          "\n                                "
+                      )
+                    ]
+                  )
+                ])
+              : _vm._e()
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "form-group" }, [
+            _c("label", [_vm._v("Harga Jual")]),
+            _vm._v(" "),
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.post.hrgJual,
+                  expression: "post.hrgJual"
+                }
+              ],
+              staticClass: "form-control",
+              attrs: { type: "text", placeholder: "Harga Jual" },
+              domProps: { value: _vm.post.hrgJual },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.$set(_vm.post, "hrgJual", $event.target.value)
+                }
+              }
+            }),
+            _vm._v(" "),
+            _vm.validation.hrgJual
+              ? _c("div", [
+                  _c(
+                    "div",
+                    {
+                      staticClass: "alert alert-danger mt-1",
+                      attrs: { role: "alert" }
+                    },
+                    [
+                      _vm._v(
+                        "\n                                    " +
+                          _vm._s(_vm.validation.hrgJual[0]) +
+                          "\n                                "
+                      )
+                    ]
+                  )
+                ])
+              : _vm._e()
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "form-group" }, [
+            _c("label", [_vm._v("Stok Barang")]),
+            _vm._v(" "),
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.post.stkBarang,
+                  expression: "post.stkBarang"
+                }
+              ],
+              staticClass: "form-control",
+              attrs: { type: "text", placeholder: "Stok Barang" },
+              domProps: { value: _vm.post.stkBarang },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.$set(_vm.post, "stkBarang", $event.target.value)
+                }
+              }
+            }),
+            _vm._v(" "),
+            _vm.validation.stkBarang
+              ? _c("div", [
+                  _c(
+                    "div",
+                    {
+                      staticClass: "alert alert-danger mt-1",
+                      attrs: { role: "alert" }
+                    },
+                    [
+                      _vm._v(
+                        "\n                                    " +
+                          _vm._s(_vm.validation.stkBarang[0]) +
+                          "\n                                "
+                      )
+                    ]
+                  )
+                ])
+              : _vm._e()
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "form-group" }, [
+            _c("label", [_vm._v("Deskripsi")]),
+            _vm._v(" "),
+            _c("textarea", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.post.deskripsi,
+                  expression: "post.deskripsi"
+                }
+              ],
+              staticClass: "form-control",
+              attrs: { rows: "5", placeholder: "Masukkan Konten" },
+              domProps: { value: _vm.post.deskripsi },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.$set(_vm.post, "deskripsi", $event.target.value)
+                }
+              }
+            }),
+            _vm._v(" "),
+            _vm.validation.deskripsi
+              ? _c("div", [
+                  _c(
+                    "div",
+                    {
+                      staticClass: "alert alert-danger mt-1",
+                      attrs: { role: "alert" }
+                    },
+                    [
+                      _vm._v(
+                        "\n                                    " +
+                          _vm._s(_vm.validation.deskripsi[0]) +
+                          "\n                                "
+                      )
+                    ]
+                  )
+                ])
+              : _vm._e()
+          ]),
+          _vm._v(" "),
+          _vm._m(0)
+        ]
+      )
     ])
   ])
 }
