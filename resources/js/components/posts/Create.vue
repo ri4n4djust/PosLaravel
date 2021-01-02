@@ -1,6 +1,6 @@
 <template>
     <div class="mt-3">
-                    <div class="card-header">TAMBAH POST</div>
+                    <div class="card-header">TAMBAH BARANG</div>
 
                     <div class="card-body">
 
