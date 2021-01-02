@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Sale;
+use App\Barang;
 //use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
@@ -13,7 +14,7 @@ class salesController extends Controller
     //
     public function index()
     {
-        $posts = Sale::latest()->get();
+        $posts = Barang::latest()->get();
         return response([
             'success' => true,
             'message' => 'List Semua Posts',
@@ -74,7 +75,7 @@ class salesController extends Controller
 
     public function show($id)
     {
-        $post = Sale::whereId($id)->first();
+        $post = Barang::whereId($id)->first();
 
         if ($post) {
             return response()->json([
@@ -114,7 +115,7 @@ class salesController extends Controller
 
         } else {
 
-            $post = Sale::whereId($request->input('id'))->update([
+            $post = Barang::whereId($request->input('id'))->update([
                 'nmBarang'     => $request->input('nmBarang'),
                 'hrgPokok'   => $request->input('hrgPokok'),
                 'hrgJual'   => $request->input('hrgJual'),
@@ -141,7 +142,7 @@ class salesController extends Controller
 
     public function destroy($id)
     {
-        $post = Sale::findOrFail($id);
+        $post = Barang::findOrFail($id);
         $post->delete();
 
         if ($post) {
