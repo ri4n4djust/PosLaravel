@@ -24,3 +24,9 @@ Route::post('/posts/store', 'salesController@store');
 Route::get('/posts/{id?}', 'salesController@show');
 Route::post('/posts/update/{id?}', 'salesController@update');
 Route::delete('/posts/{id?}', 'salesController@destroy');
+
+Route::get('/supplier', 'supplierController@index');
+Route::post('/supplier/store', 'supplierController@store');
+Route::get('/supplier/{id?}', 'supplierController@show');
+Route::post('/supplier/update/{id?}', 'supplierController@update');
+Route::delete('/supplier/{id?}', 'supplierController@destroy');
