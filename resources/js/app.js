@@ -33,23 +33,45 @@ import IndexComponent from './components/posts/Index.vue';
 import CreateComponent from './components/posts/Create.vue';
 import EditComponent from './components/posts/Edit.vue';
 
+import IndexSupComponent from './components/supplier/Index.vue';
+import CreateSupComponent from './components/supplier/Create.vue';
+import EditSupComponent from './components/supplier/Edit.vue';
+
 const routes = [
     {
         name: 'posts',
-        path: '/vue',
+        path: '/barang',
         component: IndexComponent
     },
     {
         name: 'create',
-        path: '/vue/create',
+        path: '/barang/create',
         component: CreateComponent
     },
     {
         name: 'edit',
-        path: '/vue/edit/:id',
+        path: '/barang/edit/:id',
         component: EditComponent
+    },
+    //supplier
+    {
+        name: 'supplier',
+        path: '/supplier',
+        component: IndexSupComponent
+    },
+    {
+        name: 'createSupplier',
+        path: '/supplier/create',
+        component: CreateSupComponent
+    },
+    {
+        name: 'editSupplier',
+        path: '/supplier/edit/:id',
+        component: EditSupComponent
     }
 ];
+
+
 
 const router = new VueRouter({
     mode: 'history',
