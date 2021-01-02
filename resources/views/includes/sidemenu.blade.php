@@ -17,18 +17,18 @@
             <i class="fa fa-dashboard"></i> <span>Dashboard</span>
            </a>
         </li>
-        <li class="treeview">
+        <li>
           <a href="{{url('/barang')}}">
             <i class="fa fa-calendar"></i> <span>Barang</span>
           </a>
         </li>
-        <li class="treeview">
+        <li >
           <a href="#">
             <i class="fa fa-calendar"></i> <span>Pelanggan</span>
           </a>
         </li>
         <li>
-          <a href="{{url('/adminberita')}}">
+          <a href="{{url('/supplier')}}">
             <i class="fa fa-calendar"></i> <span>Supplier</span>
           </a>
         </li>
