@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use App\Sale;
+
 use App\Barang;
 //use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
@@ -49,7 +49,7 @@ class salesController extends Controller
             //$imageName = time().'.'.$request->name->getClientOriginalExtension();
             //$request->image->move(public_path('images'), $imageName);
 
-            $post = Sale::create([
+            $post = Barang::create([
                 'nmBarang'     => $request->input('nmBarang'),
                 'hrgPokok'   => $request->input('hrgPokok'),
                 'hrgJual'   => $request->input('hrgJual'),
