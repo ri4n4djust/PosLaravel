@@ -21,10 +21,18 @@ Route::get('/home', function () {
     return view('pages.home');
 });
 
-Route::get('/vue', function () {
-    return view('app');
+Route::get('/barang', function () {
+    return view('pages.barang');
 });
 
-Route::get('/vue/{any}', function () {
+Route::get('/barang/{any}', function () {
+    return view('app');
+})->where('any','.*');
+
+
+Route::get('/supplier', function () {
+    return view('pages.supplier');
+});
+Route::get('/supplier/{any}', function () {
     return view('app');
 })->where('any','.*');
