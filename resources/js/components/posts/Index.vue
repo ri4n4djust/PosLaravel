@@ -12,6 +12,7 @@
                                     <th>Harga Pokok</th>
                                     <th>Harga Jual</th>
                                     <th>Stok Barang</th>
+                                    <th>Kategori</th>
                                     <th>Satuan</th>
                                     <th>Deskripsi</th>
                                     <th>AKSI</th>
@@ -21,9 +22,10 @@
                                 <tr v-for="(post, index) in posts" :key="post.id">
                                     <td>{{ post.kdBarang }}</td>
                                     <td>{{ post.nmBarang }}</td>
-                                    <td>{{ post.hrgPokok }}</td>
-                                    <td>{{ post.hrgJual }}</td>
+                                    <td>{{ post.hrgPokok | currency }}</td>
+                                    <td>{{ post.hrgJual | currency }}</td>
                                     <td>{{ post.stkBarang }}</td>
+                                    <td>{{ post.ktgBarang }}</td>
                                     <td>{{ post.satuanBarang }}</td>
                                     <td>{{ post.deskripsi }}</td>
                                     <td class="text-center">
