@@ -17,13 +17,24 @@
             <i class="fa fa-dashboard"></i> <span>Dashboard</span>
            </a>
         </li>
-        <li>
-          <a href="{{url('/barang')}}">
-            <i class="fa fa-calendar"></i> <span>Barang</span>
+
+
+        <li class="treeview">
+        <a href="#">
+            <i class="fa fa-table"></i> <span>Barang</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
           </a>
+          <ul class="treeview-menu">
+            <li><a href="{{url('/barang')}}"><i class="fa fa-circle-o"></i>Daftar Barang</a></li>
+            <li><a href="{{url('/kategori')}}"><i class="fa fa-circle-o"></i>Kategori Barang</a></li>
+          </ul>
         </li>
+
+
         <li >
-          <a href="#">
+          <a href="{{url('/pelanggan')}}">
             <i class="fa fa-calendar"></i> <span>Pelanggan</span>
           </a>
         </li>

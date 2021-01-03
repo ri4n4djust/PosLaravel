@@ -1,10 +1,24 @@
 <template>
     <div class="mt-3">
-                    <div class="card-header">TAMBAH BARANG</div>
-
-                    <div class="card-body">
-
+      <div class="card-header">TAMBAH BARANG</div>
+        <div class="card-body">
                         <form @submit.prevent="PostStore">
+
+       
+        <!-- left column -->
+            <div class="col-md-6">
+          <!-- general form elements -->
+                <div class="box box-primary">
+
+                            <div class="form-group">
+                                <label>Kode Barang</label>
+                                <input type="text" class="form-control" v-model="post.kdBarang">
+                                <div v-if="validation.kdBarang">
+                                    <div class="alert alert-danger mt-1" role="alert">
+                                        {{ validation.kdBarang[0] }}
+                                    </div>
+                                </div>
+                            </div>
 
                             <div class="form-group">
                                 <label>TITLE</label>
@@ -38,6 +52,15 @@
                                     </div>
                                 </div>
                             </div>
+                </div>
+            </div>
+    
+
+      
+        <!-- left column -->
+            <div class="col-md-6">
+          <!-- general form elements -->
+                <div class="box box-info">
 
                             <div class="form-group">
                                 <label>Stok</label>
@@ -46,6 +69,35 @@
                                 <div v-if="validation.stkBarang">
                                     <div class="alert alert-danger mt-1" role="alert">
                                         {{ validation.stkBarang[0] }}
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Satuan</label>
+                                <input type="text" class="form-control" v-model="post.satuanBarang">
+                                <div v-if="validation.satuanBarang">
+                                    <div class="alert alert-danger mt-1" role="alert">
+                                        {{ validation.satuanBarang[0] }}
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label>QTY Min</label>
+                                <input type="text" class="form-control" v-model="post.qtyMin">
+                                <div v-if="validation.qtyMin">
+                                    <div class="alert alert-danger mt-1" role="alert">
+                                        {{ validation.qtyMin[0] }}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label>QTY Max</label>
+                                <input type="text" class="form-control" v-model="post.qtyMax">
+                                <div v-if="validation.qtyMax">
+                                    <div class="alert alert-danger mt-1" role="alert">
+                                        {{ validation.qtyMax[0] }}
                                     </div>
                                 </div>
                             </div>
@@ -74,11 +126,14 @@
                             </div>
 
 
-                        </form>
-
-
-                    </div>
+                        
+                    
                 </div>
+            </div>
+         </form>
+    
+   </div>
+</div>
       
   
   
