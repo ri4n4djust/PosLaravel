@@ -29,6 +29,7 @@
         "git": "^0.1.5",
         "vue": "^2.6.12",
         "vue-axios": "^3.2.0",
+        "vue-currency-filter": "^5.2.0",
         "vue-router": "^3.4.9",
         "vue-sweetalert2": "^4.1.1",
         "vuejs-datatable": "^2.0.0-alpha.7"
