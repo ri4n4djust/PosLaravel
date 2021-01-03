@@ -50,11 +50,17 @@ class salesController extends Controller
             //$request->image->move(public_path('images'), $imageName);
 
             $post = Barang::create([
+                'kdBarang'     => $request->input('kdBarang'),
                 'nmBarang'     => $request->input('nmBarang'),
                 'hrgPokok'   => $request->input('hrgPokok'),
                 'hrgJual'   => $request->input('hrgJual'),
                 'stkBarang'   => $request->input('stkBarang'),
-                'deskripsi'   => $request->input('deskripsi')
+                'deskripsi'   => $request->input('deskripsi'),
+                'ktgBarang' => $request->input('ktgBarang'),
+                'satuanBarang' => $request->input('satuanBarang'),
+                'merek' => $request->input('merek'),
+                'qtyMin' => $request->input('qtyMin'),
+                'qtyMax' => $request->input('qtyMax')
             ]);
 
 
