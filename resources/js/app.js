@@ -18,7 +18,7 @@ window.Vue = require('vue');
 
 // const files = require.context('./', true, /\.vue$/i)
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
-
+import VueCurrencyFilter from 'vue-currency-filter'
 
 import VueRouter from 'vue-router';
 Vue.use(VueRouter);
@@ -36,6 +36,16 @@ import EditComponent from './components/posts/Edit.vue';
 import IndexSupComponent from './components/supplier/Index.vue';
 import CreateSupComponent from './components/supplier/Create.vue';
 import EditSupComponent from './components/supplier/Edit.vue';
+
+Vue.use(VueCurrencyFilter,
+    {
+      symbol : 'Rp.',
+      thousandsSeparator: '.',
+      fractionCount: 0,
+      fractionSeparator: ',',
+      symbolPosition: 'front',
+      symbolSpacing: true
+    })
 
 const routes = [
     {
