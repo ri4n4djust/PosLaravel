@@ -52,6 +52,22 @@
                                     </div>
                                 </div>
                             </div>
+
+                            <div class="form-group">
+                                <label>Kategori</label>
+                                <input type="text" class="form-control" v-model="post.ktgBarang"
+                                       placeholder="Kategori">
+                                <div v-if="validation.ktgBarang">
+                                    <div class="alert alert-danger mt-1" role="alert">
+                                        {{ validation.ktgBarang[0] }}
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-md btn-success">SIMPAN</button>
+                                <button type="reset" class="btn btn-md btn-danger">RESET</button>
+                            </div>
                 </div>
             </div>
     
@@ -102,6 +118,16 @@
                                 </div>
                             </div>
 
+                            <div class="form-group">
+                                <label>Merek</label>
+                                <input type="text" class="form-control" v-model="post.merek">
+                                <div v-if="validation.merek">
+                                    <div class="alert alert-danger mt-1" role="alert">
+                                        {{ validation.merek[0] }}
+                                    </div>
+                                </div>
+                            </div>
+
 
                             <div class="form-group">
                                 <label>KONTEN</label>
@@ -120,10 +146,7 @@
                             </div>
 
 
-                            <div class="form-group">
-                                <button type="submit" class="btn btn-md btn-success">SIMPAN</button>
-                                <button type="reset" class="btn btn-md btn-danger">RESET</button>
-                            </div>
+                            
 
 
                         
