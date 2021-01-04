@@ -24,7 +24,9 @@ Route::get('/home', function () {
 Route::get('/barang', function () {
     return view('pages.barang');
 });
-
+Route::get('/marketing', function () {
+    return view('pages.marketing');
+});
 Route::get('/barang/{any}', function () {
     return view('app');
 })->where('any','.*');
