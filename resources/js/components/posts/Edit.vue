@@ -7,6 +7,11 @@
                         <form @submit.prevent="PostUpdate">
 
                             <div class="form-group">
+                                <label>Kode</label>
+                                <input type="text" class="form-control" v-model="post.kdBarang"
+                                       disabled>
+                            </div>
+                            <div class="form-group">
                                 <label>TITLE</label>
                                 <input type="text" class="form-control" v-model="post.nmBarang"
                                        placeholder="Masukkan Title">
