@@ -192,6 +192,8 @@
             <!-- /.box-header -->
             <div class="box-body">
                 <div id="app">
+                <dropdown-component></dropdown-component>
+                </div>
             </div>
             <!-- /.box-body -->
             <script src="{{ mix('js/app.js') }}" type="text/javascript"></script>
