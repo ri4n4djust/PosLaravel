@@ -184,13 +184,13 @@
                 });
             },
             getCountries: function(){
-                axios.get('/get_countries')
+                axios.get('http://localhost:8000/get_countries')
                     .then(function (response) {
                         this.countries = response.data;
                     }.bind(this));
             },
             getStates: function() {
-                axios.get('/get_states',{
+                axios.get('http://localhost:8000/get_states',{
                     params: {
                         country_id: this.country
                     }
