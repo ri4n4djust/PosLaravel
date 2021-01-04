@@ -12,12 +12,8 @@ class kategoriController extends Controller
     //
     public function index()
     {
-        $kate = Kategori::latest()->get();
-        return response([
-            'success' => true,
-            'message' => 'List Semua Kategori',
-            'data' => $kate
-        ], 200);
+        $data = Kategori::get();
+        return response()->json($data);
     }
 
 }
