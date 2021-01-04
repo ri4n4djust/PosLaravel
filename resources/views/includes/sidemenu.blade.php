@@ -44,7 +44,7 @@
           </a>
         </li>
         <li>
-          <a href="{{url('/adminberita')}}">
+          <a href="{{url('/marketing')}}">
             <i class="fa fa-calendar"></i> <span>Sales</span>
           </a>
         </li>
