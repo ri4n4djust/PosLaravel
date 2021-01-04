@@ -2084,53 +2084,47 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
       post: {},
       validation: [],
-      items: [{
-        label: 'Label 1',
-        value: 1
-      }, {
-        label: 'Label 2',
-        value: 2
-      }],
-      selected: 2
+      country: 0,
+      countries: [],
+      state: 0,
+      states: []
     };
   },
   methods: {
-    getCountries: function getCountries() {
-      var _this = this;
-
-      var uri = 'http://localhost:8000/api/kategori';
-      this.axios.get(uri).then(function (response) {
-        _this.items = response.data.data;
-      });
-    },
     PostStore: function PostStore() {
-      var _this2 = this;
+      var _this = this;
 
       var uri = 'http://localhost:8000/api/posts/store';
       this.axios.post(uri, this.post).then(function (response) {
-        _this2.$router.push({
+        _this.$router.push({
           name: 'posts'
         });
       })["catch"](function (error) {
-        _this2.validation = error.response.data.data;
+        _this.validation = error.response.data.data;
       });
+    },
+    getCountries: function getCountries() {
+      axios.get('/get_countries').then(function (response) {
+        this.countries = response.data;
+      }.bind(this));
+    },
+    getStates: function getStates() {
+      axios.get('/get_states', {
+        params: {
+          country_id: this.country
+        }
+      }).then(function (response) {
+        this.states = response.data;
+      }.bind(this));
     }
+  },
+  created: function created() {
+    this.getCountries();
   }
 });
 
@@ -2145,6 +2139,11 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
 //
 //
 //
@@ -38489,73 +38488,6 @@ var render = function() {
                   : _vm._e()
               ]),
               _vm._v(" "),
-              _c("div", { staticClass: "form-group" }, [
-                _c("label", [_vm._v("Kategori")]),
-                _vm._v(" "),
-                _c(
-                  "select",
-                  {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.selected,
-                        expression: "selected"
-                      }
-                    ],
-                    staticClass: "form-control",
-                    on: {
-                      change: function($event) {
-                        var $$selectedVal = Array.prototype.filter
-                          .call($event.target.options, function(o) {
-                            return o.selected
-                          })
-                          .map(function(o) {
-                            var val = "_value" in o ? o._value : o.value
-                            return val
-                          })
-                        _vm.selected = $event.target.multiple
-                          ? $$selectedVal
-                          : $$selectedVal[0]
-                      }
-                    }
-                  },
-                  _vm._l(_vm.items, function(item) {
-                    return _c(
-                      "option",
-                      { key: item.id, domProps: { value: item.value } },
-                      [
-                        _vm._v(
-                          "\n                                        " +
-                            _vm._s(item.label) +
-                            "\n                                    "
-                        )
-                      ]
-                    )
-                  }),
-                  0
-                ),
-                _vm._v(" "),
-                _vm.validation.ktgBarang
-                  ? _c("div", [
-                      _c(
-                        "div",
-                        {
-                          staticClass: "alert alert-danger mt-1",
-                          attrs: { role: "alert" }
-                        },
-                        [
-                          _vm._v(
-                            "\n                                        " +
-                              _vm._s(_vm.validation.ktgBarang[0]) +
-                              "\n                                    "
-                          )
-                        ]
-                      )
-                    ])
-                  : _vm._e()
-              ]),
-              _vm._v(" "),
               _vm._m(0)
             ])
           ]),
@@ -38833,13 +38765,108 @@ var render = function() {
               ]),
               _vm._v(" "),
               _c("div", { staticClass: "form-group" }, [
-                _c("label", [_vm._v("Gambar")]),
+                _c("label", [_vm._v("Select Country:")]),
                 _vm._v(" "),
-                _c("input", {
-                  staticClass: "form-control",
-                  attrs: { type: "file" },
-                  on: { change: _vm.onImageChange }
-                })
+                _c(
+                  "select",
+                  {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.post.ktgBarang,
+                        expression: "post.ktgBarang"
+                      }
+                    ],
+                    staticClass: "form-control",
+                    on: {
+                      change: [
+                        function($event) {
+                          var $$selectedVal = Array.prototype.filter
+                            .call($event.target.options, function(o) {
+                              return o.selected
+                            })
+                            .map(function(o) {
+                              var val = "_value" in o ? o._value : o.value
+                              return val
+                            })
+                          _vm.$set(
+                            _vm.post,
+                            "ktgBarang",
+                            $event.target.multiple
+                              ? $$selectedVal
+                              : $$selectedVal[0]
+                          )
+                        },
+                        function($event) {
+                          return _vm.getStates()
+                        }
+                      ]
+                    }
+                  },
+                  [
+                    _c("option", { attrs: { value: "0" } }, [
+                      _vm._v("Select Country")
+                    ]),
+                    _vm._v(" "),
+                    _vm._l(_vm.countries, function(data) {
+                      return _c(
+                        "option",
+                        { key: data.id, domProps: { value: data.id } },
+                        [_vm._v(_vm._s(data.name))]
+                      )
+                    })
+                  ],
+                  2
+                )
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "form-group" }, [
+                _c("label", [_vm._v("Select State:")]),
+                _vm._v(" "),
+                _c(
+                  "select",
+                  {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.state,
+                        expression: "state"
+                      }
+                    ],
+                    staticClass: "form-control",
+                    on: {
+                      change: function($event) {
+                        var $$selectedVal = Array.prototype.filter
+                          .call($event.target.options, function(o) {
+                            return o.selected
+                          })
+                          .map(function(o) {
+                            var val = "_value" in o ? o._value : o.value
+                            return val
+                          })
+                        _vm.state = $event.target.multiple
+                          ? $$selectedVal
+                          : $$selectedVal[0]
+                      }
+                    }
+                  },
+                  [
+                    _c("option", { attrs: { value: "0" } }, [
+                      _vm._v("Select State")
+                    ]),
+                    _vm._v(" "),
+                    _vm._l(_vm.states, function(data) {
+                      return _c(
+                        "option",
+                        { key: data.id, domProps: { value: data.id } },
+                        [_vm._v(_vm._s(data.name))]
+                      )
+                    })
+                  ],
+                  2
+                )
               ])
             ])
           ])
@@ -38904,6 +38931,32 @@ var render = function() {
           }
         },
         [
+          _c("div", { staticClass: "form-group" }, [
+            _c("label", [_vm._v("Kode")]),
+            _vm._v(" "),
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.post.kdBarang,
+                  expression: "post.kdBarang"
+                }
+              ],
+              staticClass: "form-control",
+              attrs: { type: "text", disabled: "" },
+              domProps: { value: _vm.post.kdBarang },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.$set(_vm.post, "kdBarang", $event.target.value)
+                }
+              }
+            })
+          ]),
+          _vm._v(" "),
           _c("div", { staticClass: "form-group" }, [
             _c("label", [_vm._v("TITLE")]),
             _vm._v(" "),
@@ -55772,8 +55825,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /Users/max/Documents/Web/PosSale/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /Users/max/Documents/Web/PosSale/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\Users\WinMax\Documents\GitHub\PosLaravel\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\Users\WinMax\Documents\GitHub\PosLaravel\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
