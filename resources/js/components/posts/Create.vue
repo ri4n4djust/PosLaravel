@@ -21,17 +21,6 @@
                             </div>
 
                             <div class="form-group">
-                                <label>Jenis</label>
-                                <input type="text" class="form-control" v-model="post.jenis">
-                                <div v-if="validation.jenis">
-                                    <div class="alert alert-danger mt-1" role="alert">
-                                        {{ validation.jenis[0] }}
-                                    </div>
-                                </div>
-                            </div>
-                            
-
-                            <div class="form-group">
                                 <label>TITLE</label>
                                 <input type="text" class="form-control" v-model="post.nmBarang"
                                        placeholder="Masukkan Title">
@@ -66,7 +55,7 @@
 
                             
                             <div class="form-group">
-                                <button type="submit" class="btn btn-md btn-success">SIMPANNNNN</button>
+                                <button type="submit" class="btn btn-md btn-success">SIMPAN</button>
                                 <button type="reset" class="btn btn-md btn-danger">RESET</button>
                             </div>
                 </div>
