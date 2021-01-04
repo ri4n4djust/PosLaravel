@@ -2090,28 +2090,45 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
       post: {},
-      validation: []
+      validation: [],
+      items: [{
+        label: 'Label 1',
+        value: 1
+      }, {
+        label: 'Label 2',
+        value: 2
+      }],
+      selected: 2
     };
   },
   methods: {
-    onImageChange: function onImageChange(e) {
-      console.log(e.target.files[0]);
-      this.image = e.target.files[0];
+    getCountries: function getCountries() {
+      var _this = this;
+
+      var uri = 'http://localhost:8000/api/kategori';
+      this.axios.get(uri).then(function (response) {
+        _this.items = response.data.data;
+      });
     },
     PostStore: function PostStore() {
-      var _this = this;
+      var _this2 = this;
 
       var uri = 'http://localhost:8000/api/posts/store';
       this.axios.post(uri, this.post).then(function (response) {
-        _this.$router.push({
+        _this2.$router.push({
           name: 'posts'
         });
       })["catch"](function (error) {
-        _this.validation = error.response.data.data;
+        _this2.validation = error.response.data.data;
       });
     }
   }
@@ -38475,27 +38492,49 @@ var render = function() {
               _c("div", { staticClass: "form-group" }, [
                 _c("label", [_vm._v("Kategori")]),
                 _vm._v(" "),
-                _c("input", {
-                  directives: [
-                    {
-                      name: "model",
-                      rawName: "v-model",
-                      value: _vm.post.ktgBarang,
-                      expression: "post.ktgBarang"
-                    }
-                  ],
-                  staticClass: "form-control",
-                  attrs: { type: "text", placeholder: "Kategori" },
-                  domProps: { value: _vm.post.ktgBarang },
-                  on: {
-                    input: function($event) {
-                      if ($event.target.composing) {
-                        return
+                _c(
+                  "select",
+                  {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.selected,
+                        expression: "selected"
                       }
-                      _vm.$set(_vm.post, "ktgBarang", $event.target.value)
+                    ],
+                    staticClass: "form-control",
+                    on: {
+                      change: function($event) {
+                        var $$selectedVal = Array.prototype.filter
+                          .call($event.target.options, function(o) {
+                            return o.selected
+                          })
+                          .map(function(o) {
+                            var val = "_value" in o ? o._value : o.value
+                            return val
+                          })
+                        _vm.selected = $event.target.multiple
+                          ? $$selectedVal
+                          : $$selectedVal[0]
+                      }
                     }
-                  }
-                }),
+                  },
+                  _vm._l(_vm.items, function(item) {
+                    return _c(
+                      "option",
+                      { key: item.id, domProps: { value: item.value } },
+                      [
+                        _vm._v(
+                          "\n                                        " +
+                            _vm._s(item.label) +
+                            "\n                                    "
+                        )
+                      ]
+                    )
+                  }),
+                  0
+                ),
                 _vm._v(" "),
                 _vm.validation.ktgBarang
                   ? _c("div", [
