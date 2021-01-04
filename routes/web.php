@@ -39,5 +39,5 @@ Route::get('/supplier/{any}', function () {
     return view('app');
 })->where('any','.*');
 
-Route::get('get_countries', 'CountryStateController@getCountries');
-Route::get('get_states', 'CountryStateController@getStates');
+Route::get('/get_countries', 'CountryStateController@getCountries');
+Route::get('/get_states', 'CountryStateController@getStates');
