@@ -39,6 +39,11 @@ import IndexSupComponent from './components/supplier/Index.vue';
 import CreateSupComponent from './components/supplier/Create.vue';
 import EditSupComponent from './components/supplier/Edit.vue';
 
+import IndexMarketingComponent from './components/marketing/Index.vue';
+import CreateMarketingComponent from './components/marketing/Create.vue';
+import EditMarketingComponent from './components/marketing/Edit.vue';
+
+
 Vue.use(VueCurrencyFilter,
     {
       symbol : 'Rp.',
@@ -80,6 +85,22 @@ const routes = [
         name: 'editSupplier',
         path: '/supplier/edit/:id',
         component: EditSupComponent
+    },
+    //Marketing
+    {
+        name: 'marketing',
+        path: '/marketing',
+        component: IndexMarketingComponent
+    },
+    {
+        name: 'createMarketing',
+        path: '/marketing/create',
+        component: CreateMarketingComponent
+    },
+    {
+        name: 'editMarketing',
+        path: '/marketing/edit/:id',
+        component: EditMarketingComponent
     }
 ];
 
