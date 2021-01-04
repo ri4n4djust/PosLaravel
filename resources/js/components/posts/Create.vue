@@ -55,8 +55,13 @@
 
                             <div class="form-group">
                                 <label>Kategori</label>
-                                <input type="text" class="form-control" v-model="post.ktgBarang"
-                                       placeholder="Kategori">
+
+                                <select v-model="selected" class="form-control">
+                                    <option v-for="item in items" :value="item.value" :key="item.id">
+                                        {{item.label}}
+                                    </option>
+                                </select>
+
                                 <div v-if="validation.ktgBarang">
                                     <div class="alert alert-danger mt-1" role="alert">
                                         {{ validation.ktgBarang[0] }}
@@ -168,15 +173,26 @@
         data() {
             return {
                 post: {},
-                validation: []
+                validation: [],
+                items: [{
+                    label: 'Label 1',
+                    value: 1
+                }, {
+                    label: 'Label 2',
+                    value: 2
+                }],
+                selected: 2
+                
             }
         },
         methods: {
-            onImageChange(e){
-                console.log(e.target.files[0]);
-                this.image = e.target.files[0];
-
+            getCountries() {
+                let uri = 'http://localhost:8000/api/kategori';
+                this.axios.get(uri).then(response => {
+                    this.items = response.data.data;
+                });
             },
+
             PostStore() {
                 let uri = 'http://localhost:8000/api/posts/store';
                 this.axios.post(uri, this.post)
