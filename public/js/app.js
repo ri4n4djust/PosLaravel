@@ -2109,12 +2109,12 @@ __webpack_require__.r(__webpack_exports__);
       });
     },
     getCountries: function getCountries() {
-      axios.get('/get_countries').then(function (response) {
+      axios.get('http://localhost:8000/get_countries').then(function (response) {
         this.countries = response.data;
       }.bind(this));
     },
     getStates: function getStates() {
-      axios.get('/get_states', {
+      axios.get('http://localhost:8000/get_states', {
         params: {
           country_id: this.country
         }
