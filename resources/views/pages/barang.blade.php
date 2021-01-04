@@ -18,13 +18,11 @@
 
 
             <div class="box-body">
-            <div id="app">
+
+              <div id="app"></div>
+              <script src="{{ mix('js/app.js') }}" type="text/javascript"></script>
+              
             </div>
-            <script src="{{ mix('js/app.js') }}" type="text/javascript"></script>
-
-
-            <!-- /.box-body -->
-          </div>
           <!-- /.box -->
 
           
