@@ -29,7 +29,7 @@ import axios from 'axios';
 import App from './App.vue';
 Vue.use(VueAxios, axios);
 
-
+Vue.component('autocomplete',require('./components/Autocomplete.vue'));
 
 import IndexComponent from './components/posts/Index.vue';
 import CreateComponent from './components/posts/Create.vue';
