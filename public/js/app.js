@@ -2317,10 +2317,31 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
-      posts: []
+      posts: [],
+      total: {}
     };
   },
   created: function created() {
@@ -39262,6 +39283,10 @@ var render = function() {
             _vm._v(" "),
             _c("td", [_vm._v(_vm._s(post.stkBarang))]),
             _vm._v(" "),
+            _c("td", [
+              _vm._v(_vm._s(_vm._f("currency")(post.hrgPokok * post.stkBarang)))
+            ]),
+            _vm._v(" "),
             _c("td", [_vm._v(_vm._s(post.ktgBarang))]),
             _vm._v(" "),
             _c("td", [_vm._v(_vm._s(post.satuanBarang))]),
@@ -39309,7 +39334,9 @@ var render = function() {
           ])
         }),
         0
-      )
+      ),
+      _vm._v(" "),
+      _vm._m(1)
     ])
   ])
 }
@@ -39329,6 +39356,36 @@ var staticRenderFns = [
         _c("th", [_vm._v("Harga Jual")]),
         _vm._v(" "),
         _c("th", [_vm._v("Stok Barang")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("ggg")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Kategori")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Satuan")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Deskripsi")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("AKSI")])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("tfoot", [
+      _c("tr", [
+        _c("th", [_vm._v("Kode")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Nama")]),
+        _vm._v(" "),
+        _c("th"),
+        _vm._v(" "),
+        _c("th", [_vm._v("Harga Jual")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Stok Barang")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("ggg")]),
         _vm._v(" "),
         _c("th", [_vm._v("Kategori")]),
         _vm._v(" "),
