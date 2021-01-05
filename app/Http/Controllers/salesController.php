@@ -78,6 +78,13 @@ class salesController extends Controller
         }
     }
 
+    public function autocompleteSearch(Request $request)
+    {
+        $searchquery = $request->searchquery;
+        $data = Barang::where('nmBarang','like','%'.$searchquery.'%')->get();
+        return response()->json($data);
+    }
+
 
     public function show($id)
     {
