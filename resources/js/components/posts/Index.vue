@@ -11,7 +11,9 @@
                                     <th>Nama</th>
                                     <th>Harga Pokok</th>
                                     <th>Harga Jual</th>
+                                    
                                     <th>Stok Barang</th>
+                                    <th>ggg</th>
                                     <th>Kategori</th>
                                     <th>Satuan</th>
                                     <th>Deskripsi</th>
@@ -24,7 +26,9 @@
                                     <td>{{ post.nmBarang }}</td>
                                     <td>{{ post.hrgPokok | currency }}</td>
                                     <td>{{ post.hrgJual | currency }}</td>
+                                    
                                     <td>{{ post.stkBarang }}</td>
+                                    <td>{{ post.hrgPokok * post.stkBarang | currency }}</td>
                                     <td>{{ post.ktgBarang }}</td>
                                     <td>{{ post.satuanBarang }}</td>
                                     <td>{{ post.deskripsi }}</td>
@@ -35,6 +39,21 @@
                                     </td>
                                 </tr>
                                 </tbody>
+                                <tfoot>
+                                <tr>
+                                    <th>Kode</th>
+                                    <th>Nama</th>
+                                    <th></th>
+                                    <th>Harga Jual</th>
+                                    
+                                    <th>Stok Barang</th>
+                                    <th>ggg</th>
+                                    <th>Kategori</th>
+                                    <th>Satuan</th>
+                                    <th>Deskripsi</th>
+                                    <th>AKSI</th>
+                                </tr>
+                                </tfoot>
                             </table>
                         </div>
 
@@ -53,7 +72,8 @@
             this.axios.get(uri).then(response => {
                 this.posts = response.data.data;
             });
-        }
+        },
+        
     }
 </script>
 
@@ -62,15 +82,19 @@
     export default {
         data() {
             return {
-                posts: []
+                posts: [],
+                total: {},
             }
         },
         created() {
             let uri = 'http://localhost:8000/api/posts';
             this.axios.get(uri).then(response => {
                 this.posts = response.data.data;
+                
             });
         },
+        
+
         methods: {
             PostDelete(id, index)
             {
@@ -80,7 +104,8 @@
                     }).catch(error => {
                     alert('system error!');
                 });
-            }
+            },
+           
         }
     }
 </script>
