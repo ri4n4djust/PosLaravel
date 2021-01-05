@@ -21,6 +21,11 @@ Route::get('/home', function () {
     return view('pages.home');
 });
 
+Route::get('/carii', function () {
+    return view('cari');
+});
+Route::get('vuejs/autocomplete/search', 'salesController@autocompleteSearch');
+
 Route::get('/barang', function () {
     return view('pages.barang');
 });
