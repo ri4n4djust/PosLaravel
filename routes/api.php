@@ -25,6 +25,12 @@ Route::get('/posts/{id?}', 'salesController@show');
 Route::post('/posts/update/{id?}', 'salesController@update');
 Route::delete('/posts/{id?}', 'salesController@destroy');
 
+Route::get('/search',function(){
+    $query = Input::get('query');
+    $users = Barang::where('nmBarang','like','%'.$query.'%')->get();
+    return response()->json($users);
+   });
+
 //=======kategori
 Route::get('/kategori', 'kategoriController@index');
 Route::post('/kategori/store', 'kategoriController@store');
