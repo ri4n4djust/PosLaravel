@@ -167,7 +167,7 @@
                                 <tr v-for="post1 in users" :key="post1.id">
                                     <td>{{ post1.kdBarang }}</td>
                                     <td>{{ post1.nmBarang }}</td>
-                                    <td>{{ post.hrgPokok | currency }}</td>
+                                    <td>{{ post1.hrgPokok | currency }}</td>
                                     <td>{{ post1.hrgJual | currency }}</td>
                                     
                                     <td>{{ post1.stkBarang }}</td>
@@ -230,7 +230,7 @@
                 this.axios.post(uri, this.post)
                     .then((response) => {
                         this.$router.push({
-                            name: 'posts'
+                            name: 'create'
                         });
                     }).catch(error => {
                     this.validation = error.response.data.data;
