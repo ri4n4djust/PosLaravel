@@ -2264,11 +2264,30 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
       post: {},
-      validation: []
+      validation: [],
+      country: 0,
+      countries: [],
+      state: 0,
+      states: []
     };
   },
   created: function created() {
@@ -2277,6 +2296,8 @@ __webpack_require__.r(__webpack_exports__);
     var uri = "http://localhost:8000/api/posts/".concat(this.$route.params.id);
     this.axios.get(uri).then(function (response) {
       _this.post = response.data.data;
+
+      _this.getCountries();
     });
   },
   methods: {
@@ -2291,6 +2312,20 @@ __webpack_require__.r(__webpack_exports__);
       })["catch"](function (error) {
         _this2.validation = error.response.data.data;
       });
+    },
+    getCountries: function getCountries() {
+      axios.get('http://localhost:8000/get_countries').then(function (response) {
+        this.countries = response.data;
+      }.bind(this));
+    },
+    getStates: function getStates() {
+      axios.get('http://localhost:8000/get_states', {
+        params: {
+          country_id: this.country
+        }
+      }).then(function (response) {
+        this.states = response.data;
+      }.bind(this));
     }
   }
 });
@@ -39314,6 +39349,111 @@ var render = function() {
                   )
                 ])
               : _vm._e()
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "form-group" }, [
+            _c("label", [_vm._v("Select Country:")]),
+            _vm._v(" "),
+            _c(
+              "select",
+              {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.post.ktgBarang,
+                    expression: "post.ktgBarang"
+                  }
+                ],
+                staticClass: "form-control",
+                on: {
+                  change: [
+                    function($event) {
+                      var $$selectedVal = Array.prototype.filter
+                        .call($event.target.options, function(o) {
+                          return o.selected
+                        })
+                        .map(function(o) {
+                          var val = "_value" in o ? o._value : o.value
+                          return val
+                        })
+                      _vm.$set(
+                        _vm.post,
+                        "ktgBarang",
+                        $event.target.multiple
+                          ? $$selectedVal
+                          : $$selectedVal[0]
+                      )
+                    },
+                    function($event) {
+                      return _vm.getStates()
+                    }
+                  ]
+                }
+              },
+              [
+                _c("option", { attrs: { value: "0" } }, [
+                  _vm._v("Select Country")
+                ]),
+                _vm._v(" "),
+                _vm._l(_vm.countries, function(data) {
+                  return _c(
+                    "option",
+                    { key: data.id, domProps: { value: data.id } },
+                    [_vm._v(_vm._s(data.name))]
+                  )
+                })
+              ],
+              2
+            )
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "form-group" }, [
+            _c("label", [_vm._v("Select State:")]),
+            _vm._v(" "),
+            _c(
+              "select",
+              {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.state,
+                    expression: "state"
+                  }
+                ],
+                staticClass: "form-control",
+                on: {
+                  change: function($event) {
+                    var $$selectedVal = Array.prototype.filter
+                      .call($event.target.options, function(o) {
+                        return o.selected
+                      })
+                      .map(function(o) {
+                        var val = "_value" in o ? o._value : o.value
+                        return val
+                      })
+                    _vm.state = $event.target.multiple
+                      ? $$selectedVal
+                      : $$selectedVal[0]
+                  }
+                }
+              },
+              [
+                _c("option", { attrs: { value: "0" } }, [
+                  _vm._v("Select State")
+                ]),
+                _vm._v(" "),
+                _vm._l(_vm.states, function(data) {
+                  return _c(
+                    "option",
+                    { key: data.id, domProps: { value: data.id } },
+                    [_vm._v(_vm._s(data.name))]
+                  )
+                })
+              ],
+              2
+            )
           ]),
           _vm._v(" "),
           _vm._m(0)
