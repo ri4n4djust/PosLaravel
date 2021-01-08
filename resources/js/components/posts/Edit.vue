@@ -66,16 +66,10 @@
                             <label>Select Country:</label>
                             <select class='form-control' v-model='post.ktgBarang' @change='getStates()'>
                                 <option value='0' >Select Country</option>
-                                <option v-for='data in countries' :value='data.id' :key='data.id'>{{ data.name }}</option>
+                                <option v-for='data in countries' :value='data.kodeKtg' :key='data.id'>{{ data.namaKtg }}</option>
                             </select>
                         </div>
-                        <div class="form-group">
-                            <label>Select State:</label>
-                            <select class='form-control' v-model='state'>
-                                <option value='0' >Select State</option>
-                                <option v-for='data in states' :value='data.id' :key='data.id'>{{ data.name }}</option>
-                            </select>
-                        </div>
+                        
 
                             <div class="form-group">
                                 <button type="submit" class="btn btn-md btn-success">UPDATE</button>
@@ -125,15 +119,7 @@
                         this.countries = response.data;
                     }.bind(this));
             },
-            getStates: function() {
-                axios.get('http://localhost:8000/get_states',{
-                    params: {
-                        country_id: this.country
-                    }
-                }).then(function(response){
-                    this.states = response.data;
-                }.bind(this));
-            }
+           
         },
        
     }
