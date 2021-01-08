@@ -2201,7 +2201,7 @@ __webpack_require__.r(__webpack_exports__);
       var uri = 'http://localhost:8000/api/posts/store';
       this.axios.post(uri, this.post).then(function (response) {
         _this.$router.push({
-          name: 'posts'
+          name: 'create'
         });
       })["catch"](function (error) {
         _this.validation = error.response.data.data;
@@ -39029,7 +39029,7 @@ var render = function() {
             _vm._v(" "),
             _c("td", [_vm._v(_vm._s(post1.nmBarang))]),
             _vm._v(" "),
-            _c("td", [_vm._v(_vm._s(_vm._f("currency")(_vm.post.hrgPokok)))]),
+            _c("td", [_vm._v(_vm._s(_vm._f("currency")(post1.hrgPokok)))]),
             _vm._v(" "),
             _c("td", [_vm._v(_vm._s(_vm._f("currency")(post1.hrgJual)))]),
             _vm._v(" "),
