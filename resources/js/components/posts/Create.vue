@@ -133,7 +133,7 @@
                             <label>Select Country:</label>
                             <select class='form-control' v-model='post.ktgBarang' @change='getStates()'>
                                 <option value='0' >Select Country</option>
-                                <option v-for='data in countries' :value='data.id' :key='data.id'>{{ data.name }}</option>
+                                <option v-for='data in countries' :value='data.kodeKtg' :key='data.id'>{{ data.namaKtg }}</option>
                             </select>
                         </div>
                         <div class="form-group">
