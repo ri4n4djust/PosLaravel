@@ -2133,15 +2133,65 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
       post: {},
+      users: {},
       validation: [],
       country: 0,
       countries: [],
-      state: 0,
-      states: []
+      total: {}
     };
   },
   methods: {
@@ -2151,10 +2201,19 @@ __webpack_require__.r(__webpack_exports__);
       var uri = 'http://localhost:8000/api/posts/store';
       this.axios.post(uri, this.post).then(function (response) {
         _this.$router.push({
-          name: 'posts'
+          name: 'create'
         });
       })["catch"](function (error) {
         _this.validation = error.response.data.data;
+      });
+    },
+    PostDelete: function PostDelete(id, index) {
+      var _this2 = this;
+
+      this.axios["delete"]("http://localhost:8000/api/posts/".concat(id)).then(function (response) {
+        _this2.posts.splice(index, 1);
+      })["catch"](function (error) {
+        alert('system error!');
       });
     },
     getCountries: function getCountries() {
@@ -2162,18 +2221,18 @@ __webpack_require__.r(__webpack_exports__);
         this.countries = response.data;
       }.bind(this));
     },
-    getStates: function getStates() {
-      axios.get('http://localhost:8000/get_states', {
-        params: {
-          country_id: this.country
-        }
-      }).then(function (response) {
-        this.states = response.data;
-      }.bind(this));
+    loadData: function loadData() {
+      var _this3 = this;
+
+      var uri = 'http://localhost:8000/api/posts';
+      this.axios.get(uri).then(function (response) {
+        _this3.users = response.data.data;
+      });
     }
   },
   created: function created() {
     this.getCountries();
+    this.loadData();
   }
 });
 
@@ -2273,15 +2332,15 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
       post: {},
       validation: [],
+      selected: '',
       country: 0,
-      countries: [],
-      state: 0,
-      states: []
+      countries: []
     };
   },
   created: function created() {
@@ -2326,22 +2385,6 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 //
 //
 //
@@ -38642,6 +38685,58 @@ var render = function() {
                   : _vm._e()
               ]),
               _vm._v(" "),
+              _c("div", { staticClass: "form-group" }, [
+                _c("label", [_vm._v("Select Kategori:")]),
+                _vm._v(" "),
+                _c(
+                  "select",
+                  {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.post.ktgBarang,
+                        expression: "post.ktgBarang"
+                      }
+                    ],
+                    staticClass: "form-control",
+                    on: {
+                      change: function($event) {
+                        var $$selectedVal = Array.prototype.filter
+                          .call($event.target.options, function(o) {
+                            return o.selected
+                          })
+                          .map(function(o) {
+                            var val = "_value" in o ? o._value : o.value
+                            return val
+                          })
+                        _vm.$set(
+                          _vm.post,
+                          "ktgBarang",
+                          $event.target.multiple
+                            ? $$selectedVal
+                            : $$selectedVal[0]
+                        )
+                      }
+                    }
+                  },
+                  [
+                    _c("option", { attrs: { value: "0" } }, [
+                      _vm._v("Select Country")
+                    ]),
+                    _vm._v(" "),
+                    _vm._l(_vm.countries, function(data) {
+                      return _c(
+                        "option",
+                        { key: data.id, domProps: { value: data.kodeKtg } },
+                        [_vm._v(_vm._s(data.namaKtg))]
+                      )
+                    })
+                  ],
+                  2
+                )
+              ]),
+              _vm._v(" "),
               _vm._m(0)
             ])
           ]),
@@ -38916,116 +39011,86 @@ var render = function() {
                       )
                     ])
                   : _vm._e()
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "form-group" }, [
-                _c("label", [_vm._v("Select Country:")]),
-                _vm._v(" "),
-                _c(
-                  "select",
-                  {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.post.ktgBarang,
-                        expression: "post.ktgBarang"
-                      }
-                    ],
-                    staticClass: "form-control",
-                    on: {
-                      change: [
-                        function($event) {
-                          var $$selectedVal = Array.prototype.filter
-                            .call($event.target.options, function(o) {
-                              return o.selected
-                            })
-                            .map(function(o) {
-                              var val = "_value" in o ? o._value : o.value
-                              return val
-                            })
-                          _vm.$set(
-                            _vm.post,
-                            "ktgBarang",
-                            $event.target.multiple
-                              ? $$selectedVal
-                              : $$selectedVal[0]
-                          )
-                        },
-                        function($event) {
-                          return _vm.getStates()
-                        }
-                      ]
-                    }
-                  },
-                  [
-                    _c("option", { attrs: { value: "0" } }, [
-                      _vm._v("Select Country")
-                    ]),
-                    _vm._v(" "),
-                    _vm._l(_vm.countries, function(data) {
-                      return _c(
-                        "option",
-                        { key: data.id, domProps: { value: data.kodeKtg } },
-                        [_vm._v(_vm._s(data.namaKtg))]
-                      )
-                    })
-                  ],
-                  2
-                )
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "form-group" }, [
-                _c("label", [_vm._v("Select State:")]),
-                _vm._v(" "),
-                _c(
-                  "select",
-                  {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.state,
-                        expression: "state"
-                      }
-                    ],
-                    staticClass: "form-control",
-                    on: {
-                      change: function($event) {
-                        var $$selectedVal = Array.prototype.filter
-                          .call($event.target.options, function(o) {
-                            return o.selected
-                          })
-                          .map(function(o) {
-                            var val = "_value" in o ? o._value : o.value
-                            return val
-                          })
-                        _vm.state = $event.target.multiple
-                          ? $$selectedVal
-                          : $$selectedVal[0]
-                      }
-                    }
-                  },
-                  [
-                    _c("option", { attrs: { value: "0" } }, [
-                      _vm._v("Select State")
-                    ]),
-                    _vm._v(" "),
-                    _vm._l(_vm.states, function(data) {
-                      return _c(
-                        "option",
-                        { key: data.id, domProps: { value: data.id } },
-                        [_vm._v(_vm._s(data.name))]
-                      )
-                    })
-                  ],
-                  2
-                )
               ])
             ])
           ])
         ]
       )
+    ]),
+    _vm._v(" "),
+    _c("table", { staticClass: "table table-hover table-bordered" }, [
+      _vm._m(1),
+      _vm._v(" "),
+      _c(
+        "tbody",
+        _vm._l(_vm.users, function(post1) {
+          return _c("tr", { key: post1.id }, [
+            _c("td", [_vm._v(_vm._s(post1.kdBarang))]),
+            _vm._v(" "),
+            _c("td", [_vm._v(_vm._s(post1.nmBarang))]),
+            _vm._v(" "),
+            _c("td", [_vm._v(_vm._s(_vm._f("currency")(_vm.post.hrgPokok)))]),
+            _vm._v(" "),
+            _c("td", [_vm._v(_vm._s(_vm._f("currency")(post1.hrgJual)))]),
+            _vm._v(" "),
+            _c("td", [_vm._v(_vm._s(post1.stkBarang))]),
+            _vm._v(" "),
+            _c("td", [
+              _vm._v(
+                _vm._s(_vm._f("currency")(post1.hrgPokok * post1.stkBarang))
+              )
+            ]),
+            _vm._v(" "),
+            _c("td", [_vm._v(_vm._s(post1.ktgBarang))]),
+            _vm._v(" "),
+            _c("td", [_vm._v(_vm._s(post1.satuanBarang))]),
+            _vm._v(" "),
+            _c("td", [_vm._v(_vm._s(post1.deskripsi))]),
+            _vm._v(" "),
+            _c(
+              "td",
+              { staticClass: "text-center" },
+              [
+                _c(
+                  "router-link",
+                  {
+                    staticClass: "btn btn-sm btn-primary",
+                    attrs: { to: { name: "detail", params: { id: post1.id } } }
+                  },
+                  [_vm._v("Detail")]
+                ),
+                _vm._v(" "),
+                _c(
+                  "router-link",
+                  {
+                    staticClass: "btn btn-sm btn-primary",
+                    attrs: { to: { name: "edit", params: { id: post1.id } } }
+                  },
+                  [_vm._v("EDIT")]
+                ),
+                _vm._v(" "),
+                _c(
+                  "button",
+                  {
+                    staticClass: "btn btn-sm btn-danger",
+                    on: {
+                      click: function($event) {
+                        $event.preventDefault()
+                        return _vm.PostDelete(post1.id, _vm.index)
+                      }
+                    }
+                  },
+                  [_vm._v("HAPUS")]
+                )
+              ],
+              1
+            )
+          ])
+        }),
+        0
+      ),
+      _vm._v(" "),
+      _vm._m(2)
     ])
   ])
 }
@@ -39046,6 +39111,62 @@ var staticRenderFns = [
         { staticClass: "btn btn-md btn-danger", attrs: { type: "reset" } },
         [_vm._v("RESET")]
       )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("thead", [
+      _c("tr", [
+        _c("th", [_vm._v("Kode")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Nama")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Harga Pokok")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Harga Jual")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Stok Barang")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("ggg")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Kategori")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Satuan")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Deskripsi")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("AKSI")])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("tfoot", [
+      _c("tr", [
+        _c("th", [_vm._v("Kode")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Nama")]),
+        _vm._v(" "),
+        _c("th"),
+        _vm._v(" "),
+        _c("th", [_vm._v("Harga Jual")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Stok Barang")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("ggg")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Kategori")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Satuan")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Deskripsi")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("AKSI")])
+      ])
     ])
   }
 ]
@@ -39351,29 +39472,23 @@ var render = function() {
                   }
                 ],
                 staticClass: "form-control",
+                attrs: { selected: "" },
                 on: {
-                  change: [
-                    function($event) {
-                      var $$selectedVal = Array.prototype.filter
-                        .call($event.target.options, function(o) {
-                          return o.selected
-                        })
-                        .map(function(o) {
-                          var val = "_value" in o ? o._value : o.value
-                          return val
-                        })
-                      _vm.$set(
-                        _vm.post,
-                        "ktgBarang",
-                        $event.target.multiple
-                          ? $$selectedVal
-                          : $$selectedVal[0]
-                      )
-                    },
-                    function($event) {
-                      return _vm.getStates()
-                    }
-                  ]
+                  change: function($event) {
+                    var $$selectedVal = Array.prototype.filter
+                      .call($event.target.options, function(o) {
+                        return o.selected
+                      })
+                      .map(function(o) {
+                        var val = "_value" in o ? o._value : o.value
+                        return val
+                      })
+                    _vm.$set(
+                      _vm.post,
+                      "ktgBarang",
+                      $event.target.multiple ? $$selectedVal : $$selectedVal[0]
+                    )
+                  }
                 }
               },
               [
@@ -39393,6 +39508,28 @@ var render = function() {
             )
           ]),
           _vm._v(" "),
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.post.ktgBarang,
+                expression: "post.ktgBarang"
+              }
+            ],
+            staticClass: "form-control",
+            attrs: { type: "text" },
+            domProps: { value: _vm.post.ktgBarang },
+            on: {
+              input: function($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.$set(_vm.post, "ktgBarang", $event.target.value)
+              }
+            }
+          }),
+          _vm._v(" "),
           _vm._m(0)
         ]
       )
@@ -39408,7 +39545,7 @@ var staticRenderFns = [
       _c(
         "button",
         { staticClass: "btn btn-md btn-success", attrs: { type: "submit" } },
-        [_vm._v("UPDATE")]
+        [_vm._v("UPDATE ")]
       ),
       _vm._v(" "),
       _c(
