@@ -60,22 +60,6 @@
                 
 
 </template>
-<script>
-    export default {
-        data() {
-            return {
-                posts: []
-            }
-        },
-        created() {
-            let uri = 'http://localhost:8000/api/posts';
-            this.axios.get(uri).then(response => {
-                this.posts = response.data.data;
-            });
-        },
-        
-    }
-</script>
 
 
 <script>
