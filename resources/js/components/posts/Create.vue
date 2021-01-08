@@ -230,7 +230,7 @@
                 this.axios.post(uri, this.post)
                     .then((response) => {
                         this.$router.push({
-                            name: 'create'
+                            name: 'posts'
                         });
                     }).catch(error => {
                     this.validation = error.response.data.data;
