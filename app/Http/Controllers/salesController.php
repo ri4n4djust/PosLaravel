@@ -133,7 +133,8 @@ class salesController extends Controller
                 'hrgPokok'   => $request->input('hrgPokok'),
                 'hrgJual'   => $request->input('hrgJual'),
                 'stkBarang'   => $request->input('stkBarang'),
-                'deskripsi'   => $request->input('deskripsi')
+                'deskripsi'   => $request->input('deskripsi'),
+                'ktgBarang'   => $request->input('ktgBarang')
             ]);
 
 
