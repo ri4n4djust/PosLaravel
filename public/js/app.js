@@ -2200,9 +2200,13 @@ __webpack_require__.r(__webpack_exports__);
 
       var uri = 'http://localhost:8000/api/posts/store';
       this.axios.post(uri, this.post).then(function (response) {
-        _this.$router.push({
-          name: 'create'
-        });
+        var path = '/barang/create';
+
+        _this.$router.push(path);
+
+        _this.loadData();
+
+        _this.resetForm();
       })["catch"](function (error) {
         _this.validation = error.response.data.data;
       });
@@ -2215,6 +2219,14 @@ __webpack_require__.r(__webpack_exports__);
       })["catch"](function (error) {
         alert('system error!');
       });
+    },
+    resetForm: function resetForm() {
+      // ref='textareaform'
+      // reset() method resets the values of all elements in a form
+      //document.getElementById("formTambah").reset(); 
+      // this.$refs.formTambah.reset()
+      this.$refs.kodebarang.value = '';
+      alert('reset donkkkkkkkk'); //this.$refs.formTambah.reset()
     },
     getCountries: function getCountries() {
       axios.get('http://localhost:8000/get_countries').then(function (response) {
@@ -38517,6 +38529,7 @@ var render = function() {
                       expression: "post.kdBarang"
                     }
                   ],
+                  ref: "kodebarang",
                   staticClass: "form-control",
                   attrs: { type: "text" },
                   domProps: { value: _vm.post.kdBarang },
@@ -38737,7 +38750,38 @@ var render = function() {
                 )
               ]),
               _vm._v(" "),
-              _vm._m(0)
+              _c("div", { staticClass: "form-group" }, [
+                _c("input", {
+                  attrs: {
+                    type: "reset",
+                    value: "Reset the form",
+                    accesskey: "r"
+                  }
+                }),
+                _vm._v(" "),
+                _c(
+                  "button",
+                  {
+                    staticClass: "btn btn-md btn-success",
+                    attrs: { type: "submit" }
+                  },
+                  [_vm._v("SIMPAN")]
+                ),
+                _vm._v(" "),
+                _c(
+                  "button",
+                  {
+                    staticClass: "btn btn-md btn-danger",
+                    attrs: { type: "reset" },
+                    on: {
+                      click: function($event) {
+                        return _vm.reset()
+                      }
+                    }
+                  },
+                  [_vm._v("RESET")]
+                )
+              ])
             ])
           ]),
           _vm._v(" "),
@@ -39019,7 +39063,7 @@ var render = function() {
     ]),
     _vm._v(" "),
     _c("table", { staticClass: "table table-hover table-bordered" }, [
-      _vm._m(1),
+      _vm._m(0),
       _vm._v(" "),
       _c(
         "tbody",
@@ -39090,29 +39134,11 @@ var render = function() {
         0
       ),
       _vm._v(" "),
-      _vm._m(2)
+      _vm._m(1)
     ])
   ])
 }
 var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "form-group" }, [
-      _c(
-        "button",
-        { staticClass: "btn btn-md btn-success", attrs: { type: "submit" } },
-        [_vm._v("SIMPAN")]
-      ),
-      _vm._v(" "),
-      _c(
-        "button",
-        { staticClass: "btn btn-md btn-danger", attrs: { type: "reset" } },
-        [_vm._v("RESET")]
-      )
-    ])
-  },
   function() {
     var _vm = this
     var _h = _vm.$createElement
@@ -56279,8 +56305,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\WinMax\Documents\GitHub\PosLaravel\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\Users\WinMax\Documents\GitHub\PosLaravel\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /Users/max/Documents/Web/PosSale/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /Users/max/Documents/Web/PosSale/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
