@@ -2201,7 +2201,7 @@ __webpack_require__.r(__webpack_exports__);
       var uri = 'http://localhost:8000/api/posts/store';
       this.axios.post(uri, this.post).then(function (response) {
         _this.$router.push({
-          name: 'create'
+          name: 'posts'
         });
       })["catch"](function (error) {
         _this.validation = error.response.data.data;
