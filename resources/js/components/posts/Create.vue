@@ -2,9 +2,8 @@
     <div class="mt-3">
       <div class="card-header">TAMBAH BARANG</div>
         <div class="card-body">
-                        <form @submit.prevent="PostStore">
-
-       
+        
+        <form  @submit.prevent="PostStore">
         <!-- left column -->
             <div class="col-md-6">
           <!-- general form elements -->
@@ -12,7 +11,7 @@
 
                             <div class="form-group">
                                 <label>Kode Barang</label>
-                                <input type="text" class="form-control" v-model="post.kdBarang">
+                                <input type="text" ref="kodebarang" class="form-control" v-model="post.kdBarang">
                                 <div v-if="validation.kdBarang">
                                     <div class="alert alert-danger mt-1" role="alert">
                                         {{ validation.kdBarang[0] }}
@@ -63,8 +62,9 @@
 
                             
                             <div class="form-group">
-                                <button type="submit" class="btn btn-md btn-success">SIMPAN</button>
-                                <button type="reset" class="btn btn-md btn-danger">RESET</button>
+                                <input type="reset" value="Reset the form" accesskey="r">
+                                <button type="submit"  class="btn btn-md btn-success">SIMPAN</button>
+                                <button type="reset" @click="reset()" class="btn btn-md btn-danger">RESET</button>
                             </div>
                 </div>
             </div>
@@ -229,9 +229,10 @@
                 let uri = 'http://localhost:8000/api/posts/store';
                 this.axios.post(uri, this.post)
                     .then((response) => {
-                        this.$router.push({
-                            name: 'create'
-                        });
+                        const path = '/barang/create'
+                        this.$router.push(path)
+                        this.loadData()
+                        this.resetForm()
                     }).catch(error => {
                     this.validation = error.response.data.data;
                 });
@@ -245,13 +246,21 @@
                     alert('system error!');
                 });
             },
+            resetForm() {
+                // ref='textareaform'
+                // reset() method resets the values of all elements in a form
+                //document.getElementById("formTambah").reset(); 
+                // this.$refs.formTambah.reset()
+                this.$refs.kodebarang.value = '';
+                alert('reset donkkkkkkkk');
+                //this.$refs.formTambah.reset()
+            },
             getCountries: function(){
                 axios.get('http://localhost:8000/get_countries')
                     .then(function (response) {
                         this.countries = response.data;
                     }.bind(this));
             },
-
             loadData:function(){
                 let uri = 'http://localhost:8000/api/posts';
                 this.axios.get(uri).then(response => {
