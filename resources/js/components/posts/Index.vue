@@ -80,8 +80,10 @@
         
 
         methods: {
+            
             PostDelete(id, index)
             {
+                
                 this.axios.delete(`http://localhost:8000/api/posts/${id}`)
                     .then(response => {
                         this.posts.splice(index, 1);
