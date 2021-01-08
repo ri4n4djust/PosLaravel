@@ -53,6 +53,14 @@
                                 </div>
                             </div>
 
+                            <div class="form-group">
+                            <label>Select Kategori:</label>
+                            <select class='form-control' v-model='post.ktgBarang'>
+                                <option value='0' >Select Country</option>
+                                <option v-for='data in countries' :value='data.kodeKtg' :key='data.id'>{{ data.namaKtg }}</option>
+                            </select>
+                        </div>
+
                             
                             <div class="form-group">
                                 <button type="submit" class="btn btn-md btn-success">SIMPAN</button>
@@ -129,27 +137,69 @@
                                     </div>
                                 </div>
                             </div>
-                        <div class="form-group">
-                            <label>Select Country:</label>
-                            <select class='form-control' v-model='post.ktgBarang' @change='getStates()'>
-                                <option value='0' >Select Country</option>
-                                <option v-for='data in countries' :value='data.kodeKtg' :key='data.id'>{{ data.namaKtg }}</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label>Select State:</label>
-                            <select class='form-control' v-model='state'>
-                                <option value='0' >Select State</option>
-                                <option v-for='data in states' :value='data.id' :key='data.id'>{{ data.name }}</option>
-                            </select>
-                        </div>
-                                                    
+                        
+                                         
                     
                 </div>
             </div>
          </form>
     
    </div>
+
+
+   <table class="table table-hover table-bordered">
+                                <thead>
+                                <tr>
+                                    <th>Kode</th>
+                                    <th>Nama</th>
+                                    <th>Harga Pokok</th>
+                                    <th>Harga Jual</th>
+                                    
+                                    <th>Stok Barang</th>
+                                    <th>ggg</th>
+                                    <th>Kategori</th>
+                                    <th>Satuan</th>
+                                    <th>Deskripsi</th>
+                                    <th>AKSI</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr v-for="post1 in users" :key="post1.id">
+                                    <td>{{ post1.kdBarang }}</td>
+                                    <td>{{ post1.nmBarang }}</td>
+                                    <td>{{ post.hrgPokok | currency }}</td>
+                                    <td>{{ post1.hrgJual | currency }}</td>
+                                    
+                                    <td>{{ post1.stkBarang }}</td>
+                                    <td>{{ post1.hrgPokok * post1.stkBarang | currency }}</td>
+                                    <td>{{ post1.ktgBarang }}</td>
+                                    <td>{{ post1.satuanBarang }}</td>
+                                    <td>{{ post1.deskripsi }}</td>
+                                    <td class="text-center">
+                                        <router-link :to="{name: 'detail', params: { id: post1.id }}" class="btn btn-sm btn-primary">Detail</router-link>
+                                        <router-link :to="{name: 'edit', params: { id: post1.id }}" class="btn btn-sm btn-primary">EDIT</router-link>
+                                        <button @click.prevent="PostDelete(post1.id, index)" class="btn btn-sm btn-danger">HAPUS</button>
+                                    </td>
+                                </tr>
+                                </tbody>
+                                <tfoot>
+                                <tr>
+                                    <th>Kode</th>
+                                    <th>Nama</th>
+                                    <th></th>
+                                    <th>Harga Jual</th>
+                                    
+                                    <th>Stok Barang</th>
+                                    <th>ggg</th>
+                                    <th>Kategori</th>
+                                    <th>Satuan</th>
+                                    <th>Deskripsi</th>
+                                    <th>AKSI</th>
+                                </tr>
+                                </tfoot>
+                            </table>
+
+
 </div>
       
   
@@ -162,25 +212,37 @@
         data() {
             return {
                 post: {},
+                users: {},
                 validation: [],
                 country: 0,
                 countries: [],
-                state: 0,
-                states: []
-                
+                total: {},
                 
             }
+            
         },
+        
+        
+
         methods: {
             PostStore() {
                 let uri = 'http://localhost:8000/api/posts/store';
                 this.axios.post(uri, this.post)
                     .then((response) => {
                         this.$router.push({
-                            name: 'posts'
+                            name: 'create'
                         });
                     }).catch(error => {
                     this.validation = error.response.data.data;
+                });
+            },
+            PostDelete(id, index)
+            {
+                this.axios.delete(`http://localhost:8000/api/posts/${id}`)
+                    .then(response => {
+                        this.posts.splice(index, 1);
+                    }).catch(error => {
+                    alert('system error!');
                 });
             },
             getCountries: function(){
@@ -189,18 +251,19 @@
                         this.countries = response.data;
                     }.bind(this));
             },
-            getStates: function() {
-                axios.get('http://localhost:8000/get_states',{
-                    params: {
-                        country_id: this.country
-                    }
-                }).then(function(response){
-                    this.states = response.data;
-                }.bind(this));
-            }
+
+            loadData:function(){
+                let uri = 'http://localhost:8000/api/posts';
+                this.axios.get(uri).then(response => {
+                this.users = response.data.data;
+                
+            });
+            },
         },
+   
         created: function(){
             this.getCountries()
+            this.loadData()
         }
         }
     
