@@ -64,15 +64,16 @@
 
                             <div class="form-group">
                             <label>Select Country:</label>
-                            <select class='form-control' v-model='post.ktgBarang' @change='getStates()'>
+                            <select class='form-control' v-model='post.ktgBarang' selected >
                                 <option value='0' >Select Country</option>
-                                <option v-for='data in countries' :value='data.kodeKtg' :key='data.id'>{{ data.namaKtg }}</option>
+                                <option  v-for='data in countries' :value='data.kodeKtg' :key='data.id'>{{ data.namaKtg }}</option>
                             </select>
+                            
                         </div>
                         
-
+                   <input type="text" class="form-control" v-model="post.ktgBarang">
                             <div class="form-group">
-                                <button type="submit" class="btn btn-md btn-success">UPDATE</button>
+                                <button type="submit" class="btn btn-md btn-success">UPDATE </button>
                                 <button type="reset" class="btn btn-md btn-danger">RESET</button>
                             </div>
 
@@ -90,10 +91,10 @@
             return {
                 post: {},
                 validation: [],
+                selected : '',
                 country: 0,
                 countries: [],
-                state: 0,
-                states: []
+                
             }
         },
         created() {
