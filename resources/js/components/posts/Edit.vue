@@ -72,6 +72,8 @@
                         </div>
                         
                    <input type="text" class="form-control" v-model="post.ktgBarang">
+
+
                             <div class="form-group">
                                 <button type="submit" class="btn btn-md btn-success">UPDATE </button>
                                 <button type="reset" class="btn btn-md btn-danger">RESET</button>
