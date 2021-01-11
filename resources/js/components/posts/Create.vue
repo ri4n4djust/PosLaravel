@@ -60,9 +60,9 @@
                             </select>
                         </div>
 
+                        <input type="text" class="form-control" v-for='data in countries' :key='data.id' v-model="data.namaKtg">
                             
                             <div class="form-group">
-                                <input type="reset" value="Reset the form" accesskey="r">
                                 <button type="submit"  class="btn btn-md btn-success">SIMPAN</button>
                                 <button type="reset" @click="reset()" class="btn btn-md btn-danger">RESET</button>
                             </div>
