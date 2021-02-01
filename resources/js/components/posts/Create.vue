@@ -3,7 +3,7 @@
       <div class="card-header">TAMBAH BARANG</div>
         <div class="card-body">
         
-        <form  @submit.prevent="PostStore">
+        <form  @submit.prevent="PostStore" id='myForm'>
         <!-- left column -->
             <div class="col-md-6">
           <!-- general form elements -->
@@ -251,7 +251,7 @@
                 // reset() method resets the values of all elements in a form
                 //document.getElementById("formTambah").reset(); 
                 // this.$refs.formTambah.reset()
-                this.$refs.kodebarang.value = '';
+                inputs.forEach(input =>  input.value = '');
                 alert('reset donkkkkkkkk');
                 //this.$refs.formTambah.reset()
             },
