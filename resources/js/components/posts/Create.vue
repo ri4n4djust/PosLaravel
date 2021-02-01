@@ -3,7 +3,7 @@
       <div class="card-header">TAMBAH BARANG</div>
         <div class="card-body">
         
-        <form  @submit.prevent="PostStore" id='myForm'>
+        <form  @submit.prevent="PostStore" ref="anyName" id="anyName">
         <!-- left column -->
             <div class="col-md-6">
           <!-- general form elements -->
@@ -226,7 +226,7 @@
 
         methods: {
             PostStore() {
-                let uri = 'http://localhost:8000/api/posts/store';
+                let uri = '/api/posts/store';
                 this.axios.post(uri, this.post)
                     .then((response) => {
                         const path = '/barang/create'
@@ -239,7 +239,7 @@
             },
             PostDelete(id, index)
             {
-                this.axios.delete(`http://localhost:8000/api/posts/${id}`)
+                this.axios.delete(`/api/posts/${id}`)
                     .then(response => {
                         this.posts.splice(index, 1);
                     }).catch(error => {
@@ -251,18 +251,18 @@
                 // reset() method resets the values of all elements in a form
                 //document.getElementById("formTambah").reset(); 
                 // this.$refs.formTambah.reset()
-                inputs.forEach(input =>  input.value = '');
+                document.getElementById('myInput').value = ''
                 alert('reset donkkkkkkkk');
                 //this.$refs.formTambah.reset()
             },
             getCountries: function(){
-                axios.get('http://localhost:8000/get_countries')
+                axios.get('/get_countries')
                     .then(function (response) {
                         this.countries = response.data;
                     }.bind(this));
             },
             loadData:function(){
-                let uri = 'http://localhost:8000/api/posts';
+                let uri = '/api/posts';
                 this.axios.get(uri).then(response => {
                 this.users = response.data.data;
                 
