@@ -2345,6 +2345,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -38516,273 +38518,295 @@ var render = function() {
         },
         [
           _c("div", { staticClass: "col-md-6" }, [
-            _c("div", { staticClass: "box box-primary" }, [
-              _c("div", { staticClass: "form-group" }, [
-                _c("label", [_vm._v("Kode Barang")]),
-                _vm._v(" "),
-                _c("input", {
-                  directives: [
-                    {
-                      name: "model",
-                      rawName: "v-model",
-                      value: _vm.post.kdBarang,
-                      expression: "post.kdBarang"
-                    }
-                  ],
-                  ref: "kodebarang",
-                  staticClass: "form-control",
-                  attrs: { type: "text" },
-                  domProps: { value: _vm.post.kdBarang },
-                  on: {
-                    input: function($event) {
-                      if ($event.target.composing) {
-                        return
-                      }
-                      _vm.$set(_vm.post, "kdBarang", $event.target.value)
-                    }
-                  }
-                }),
-                _vm._v(" "),
-                _vm.validation.kdBarang
-                  ? _c("div", [
-                      _c(
-                        "div",
-                        {
-                          staticClass: "alert alert-danger mt-1",
-                          attrs: { role: "alert" }
-                        },
-                        [
-                          _vm._v(
-                            "\n                                        " +
-                              _vm._s(_vm.validation.kdBarang[0]) +
-                              "\n                                    "
-                          )
-                        ]
-                      )
-                    ])
-                  : _vm._e()
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "form-group" }, [
-                _c("label", [_vm._v("TITLE")]),
-                _vm._v(" "),
-                _c("input", {
-                  directives: [
-                    {
-                      name: "model",
-                      rawName: "v-model",
-                      value: _vm.post.nmBarang,
-                      expression: "post.nmBarang"
-                    }
-                  ],
-                  staticClass: "form-control",
-                  attrs: { type: "text", placeholder: "Masukkan Title" },
-                  domProps: { value: _vm.post.nmBarang },
-                  on: {
-                    input: function($event) {
-                      if ($event.target.composing) {
-                        return
-                      }
-                      _vm.$set(_vm.post, "nmBarang", $event.target.value)
-                    }
-                  }
-                }),
-                _vm._v(" "),
-                _vm.validation.nmBarang
-                  ? _c("div", [
-                      _c(
-                        "div",
-                        {
-                          staticClass: "alert alert-danger mt-1",
-                          attrs: { role: "alert" }
-                        },
-                        [
-                          _vm._v(
-                            "\n                                        " +
-                              _vm._s(_vm.validation.nmBarang[0]) +
-                              "\n                                    "
-                          )
-                        ]
-                      )
-                    ])
-                  : _vm._e()
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "form-group" }, [
-                _c("label", [_vm._v("Harga Pokok")]),
-                _vm._v(" "),
-                _c("input", {
-                  directives: [
-                    {
-                      name: "model",
-                      rawName: "v-model",
-                      value: _vm.post.hrgPokok,
-                      expression: "post.hrgPokok"
-                    }
-                  ],
-                  staticClass: "form-control",
-                  attrs: { type: "text", placeholder: "Harga Pokok" },
-                  domProps: { value: _vm.post.hrgPokok },
-                  on: {
-                    input: function($event) {
-                      if ($event.target.composing) {
-                        return
-                      }
-                      _vm.$set(_vm.post, "hrgPokok", $event.target.value)
-                    }
-                  }
-                }),
-                _vm._v(" "),
-                _vm.validation.hrgPokok
-                  ? _c("div", [
-                      _c(
-                        "div",
-                        {
-                          staticClass: "alert alert-danger mt-1",
-                          attrs: { role: "alert" }
-                        },
-                        [
-                          _vm._v(
-                            "\n                                        " +
-                              _vm._s(_vm.validation.hrgPokok[0]) +
-                              "\n                                    "
-                          )
-                        ]
-                      )
-                    ])
-                  : _vm._e()
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "form-group" }, [
-                _c("label", [_vm._v("Harga Jual")]),
-                _vm._v(" "),
-                _c("input", {
-                  directives: [
-                    {
-                      name: "model",
-                      rawName: "v-model",
-                      value: _vm.post.hrgJual,
-                      expression: "post.hrgJual"
-                    }
-                  ],
-                  staticClass: "form-control",
-                  attrs: { type: "text", placeholder: "Harga Jual" },
-                  domProps: { value: _vm.post.hrgJual },
-                  on: {
-                    input: function($event) {
-                      if ($event.target.composing) {
-                        return
-                      }
-                      _vm.$set(_vm.post, "hrgJual", $event.target.value)
-                    }
-                  }
-                }),
-                _vm._v(" "),
-                _vm.validation.hrgJual
-                  ? _c("div", [
-                      _c(
-                        "div",
-                        {
-                          staticClass: "alert alert-danger mt-1",
-                          attrs: { role: "alert" }
-                        },
-                        [
-                          _vm._v(
-                            "\n                                        " +
-                              _vm._s(_vm.validation.hrgJual[0]) +
-                              "\n                                    "
-                          )
-                        ]
-                      )
-                    ])
-                  : _vm._e()
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "form-group" }, [
-                _c("label", [_vm._v("Select Kategori:")]),
-                _vm._v(" "),
-                _c(
-                  "select",
-                  {
+            _c(
+              "div",
+              { staticClass: "box box-primary" },
+              [
+                _c("div", { staticClass: "form-group" }, [
+                  _c("label", [_vm._v("Kode Barang")]),
+                  _vm._v(" "),
+                  _c("input", {
                     directives: [
                       {
                         name: "model",
                         rawName: "v-model",
-                        value: _vm.post.ktgBarang,
-                        expression: "post.ktgBarang"
+                        value: _vm.post.kdBarang,
+                        expression: "post.kdBarang"
+                      }
+                    ],
+                    ref: "kodebarang",
+                    staticClass: "form-control",
+                    attrs: { type: "text" },
+                    domProps: { value: _vm.post.kdBarang },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(_vm.post, "kdBarang", $event.target.value)
+                      }
+                    }
+                  }),
+                  _vm._v(" "),
+                  _vm.validation.kdBarang
+                    ? _c("div", [
+                        _c(
+                          "div",
+                          {
+                            staticClass: "alert alert-danger mt-1",
+                            attrs: { role: "alert" }
+                          },
+                          [
+                            _vm._v(
+                              "\n                                        " +
+                                _vm._s(_vm.validation.kdBarang[0]) +
+                                "\n                                    "
+                            )
+                          ]
+                        )
+                      ])
+                    : _vm._e()
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "form-group" }, [
+                  _c("label", [_vm._v("TITLE")]),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.post.nmBarang,
+                        expression: "post.nmBarang"
                       }
                     ],
                     staticClass: "form-control",
+                    attrs: { type: "text", placeholder: "Masukkan Title" },
+                    domProps: { value: _vm.post.nmBarang },
                     on: {
-                      change: function($event) {
-                        var $$selectedVal = Array.prototype.filter
-                          .call($event.target.options, function(o) {
-                            return o.selected
-                          })
-                          .map(function(o) {
-                            var val = "_value" in o ? o._value : o.value
-                            return val
-                          })
-                        _vm.$set(
-                          _vm.post,
-                          "ktgBarang",
-                          $event.target.multiple
-                            ? $$selectedVal
-                            : $$selectedVal[0]
-                        )
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(_vm.post, "nmBarang", $event.target.value)
                       }
                     }
-                  },
-                  [
-                    _c("option", { attrs: { value: "0" } }, [
-                      _vm._v("Select Country")
-                    ]),
-                    _vm._v(" "),
-                    _vm._l(_vm.countries, function(data) {
-                      return _c(
-                        "option",
-                        { key: data.id, domProps: { value: data.kodeKtg } },
-                        [_vm._v(_vm._s(data.namaKtg))]
-                      )
-                    })
-                  ],
-                  2
-                )
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "form-group" }, [
-                _c("input", {
-                  attrs: {
-                    type: "reset",
-                    value: "Reset the form",
-                    accesskey: "r"
-                  }
+                  }),
+                  _vm._v(" "),
+                  _vm.validation.nmBarang
+                    ? _c("div", [
+                        _c(
+                          "div",
+                          {
+                            staticClass: "alert alert-danger mt-1",
+                            attrs: { role: "alert" }
+                          },
+                          [
+                            _vm._v(
+                              "\n                                        " +
+                                _vm._s(_vm.validation.nmBarang[0]) +
+                                "\n                                    "
+                            )
+                          ]
+                        )
+                      ])
+                    : _vm._e()
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "form-group" }, [
+                  _c("label", [_vm._v("Harga Pokok")]),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.post.hrgPokok,
+                        expression: "post.hrgPokok"
+                      }
+                    ],
+                    staticClass: "form-control",
+                    attrs: { type: "text", placeholder: "Harga Pokok" },
+                    domProps: { value: _vm.post.hrgPokok },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(_vm.post, "hrgPokok", $event.target.value)
+                      }
+                    }
+                  }),
+                  _vm._v(" "),
+                  _vm.validation.hrgPokok
+                    ? _c("div", [
+                        _c(
+                          "div",
+                          {
+                            staticClass: "alert alert-danger mt-1",
+                            attrs: { role: "alert" }
+                          },
+                          [
+                            _vm._v(
+                              "\n                                        " +
+                                _vm._s(_vm.validation.hrgPokok[0]) +
+                                "\n                                    "
+                            )
+                          ]
+                        )
+                      ])
+                    : _vm._e()
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "form-group" }, [
+                  _c("label", [_vm._v("Harga Jual")]),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.post.hrgJual,
+                        expression: "post.hrgJual"
+                      }
+                    ],
+                    staticClass: "form-control",
+                    attrs: { type: "text", placeholder: "Harga Jual" },
+                    domProps: { value: _vm.post.hrgJual },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(_vm.post, "hrgJual", $event.target.value)
+                      }
+                    }
+                  }),
+                  _vm._v(" "),
+                  _vm.validation.hrgJual
+                    ? _c("div", [
+                        _c(
+                          "div",
+                          {
+                            staticClass: "alert alert-danger mt-1",
+                            attrs: { role: "alert" }
+                          },
+                          [
+                            _vm._v(
+                              "\n                                        " +
+                                _vm._s(_vm.validation.hrgJual[0]) +
+                                "\n                                    "
+                            )
+                          ]
+                        )
+                      ])
+                    : _vm._e()
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "form-group" }, [
+                  _c("label", [_vm._v("Select Kategori:")]),
+                  _vm._v(" "),
+                  _c(
+                    "select",
+                    {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.post.ktgBarang,
+                          expression: "post.ktgBarang"
+                        }
+                      ],
+                      staticClass: "form-control",
+                      on: {
+                        change: function($event) {
+                          var $$selectedVal = Array.prototype.filter
+                            .call($event.target.options, function(o) {
+                              return o.selected
+                            })
+                            .map(function(o) {
+                              var val = "_value" in o ? o._value : o.value
+                              return val
+                            })
+                          _vm.$set(
+                            _vm.post,
+                            "ktgBarang",
+                            $event.target.multiple
+                              ? $$selectedVal
+                              : $$selectedVal[0]
+                          )
+                        }
+                      }
+                    },
+                    [
+                      _c("option", { attrs: { value: "0" } }, [
+                        _vm._v("Select Country")
+                      ]),
+                      _vm._v(" "),
+                      _vm._l(_vm.countries, function(data) {
+                        return _c(
+                          "option",
+                          { key: data.id, domProps: { value: data.kodeKtg } },
+                          [_vm._v(_vm._s(data.namaKtg))]
+                        )
+                      })
+                    ],
+                    2
+                  )
+                ]),
+                _vm._v(" "),
+                _vm._l(_vm.countries, function(data) {
+                  return _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: data.namaKtg,
+                        expression: "data.namaKtg"
+                      }
+                    ],
+                    key: data.id,
+                    staticClass: "form-control",
+                    attrs: { type: "text" },
+                    domProps: { value: data.namaKtg },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(data, "namaKtg", $event.target.value)
+                      }
+                    }
+                  })
                 }),
                 _vm._v(" "),
-                _c(
-                  "button",
-                  {
-                    staticClass: "btn btn-md btn-success",
-                    attrs: { type: "submit" }
-                  },
-                  [_vm._v("SIMPAN")]
-                ),
-                _vm._v(" "),
-                _c(
-                  "button",
-                  {
-                    staticClass: "btn btn-md btn-danger",
-                    attrs: { type: "reset" },
-                    on: {
-                      click: function($event) {
-                        return _vm.reset()
+                _c("div", { staticClass: "form-group" }, [
+                  _c(
+                    "button",
+                    {
+                      staticClass: "btn btn-md btn-success",
+                      attrs: { type: "submit" }
+                    },
+                    [_vm._v("SIMPAN")]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "button",
+                    {
+                      staticClass: "btn btn-md btn-danger",
+                      attrs: { type: "reset" },
+                      on: {
+                        click: function($event) {
+                          return _vm.reset()
+                        }
                       }
-                    }
-                  },
-                  [_vm._v("RESET")]
-                )
-              ])
-            ])
+                    },
+                    [_vm._v("RESET")]
+                  )
+                ])
+              ],
+              2
+            )
           ]),
           _vm._v(" "),
           _c("div", { staticClass: "col-md-6" }, [
@@ -56305,8 +56329,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /Users/max/Documents/Web/PosSale/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /Users/max/Documents/Web/PosSale/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\Users\WinMax\Documents\GitHub\PosLaravel\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\Users\WinMax\Documents\GitHub\PosLaravel\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
