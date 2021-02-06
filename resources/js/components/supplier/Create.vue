@@ -50,6 +50,10 @@
                                 </div>
                             </div>
 
+                            <div class="form-group">
+<date-picker v-model="post.currentDateWithFormat" valueType="format"></date-picker>
+                            </div>
+
 
                             <div class="form-group">
                                 <button type="submit" class="btn btn-md btn-success">SIMPAN</button>
@@ -69,19 +73,27 @@
 
 
 <script>
+import DatePicker from 'vue2-datepicker';
+import 'vue2-datepicker/index.css';
+
     export default {
+        components: { DatePicker },
         data() {
             return {
                 post: {},
-                validation: []
+                validation: [],
+                currentDateWithFormat: '',
             }
         },
         methods: {
-            onImageChange(e){
-                console.log(e.target.files[0]);
-                this.image = e.target.files[0];
 
+             callFunction() {
+            var currentDateWithFormat = new Date().toJSON().slice(0,10).replace(/-/g,'/');
+            this.post.currentDateWithFormat = currentDateWithFormat;
+            alert(currentDateWithFormat);
+            
             },
+           
             PostStore() {
                 let uri = 'http://localhost:8000/api/supplier/store';
                 this.axios.post(uri, this.post)
@@ -92,7 +104,13 @@
                     }).catch(error => {
                     this.validation = error.response.data.data;
                 });
-            }
+            },
+            
+        },
+
+        created: function(){
+
+            this.callFunction()
         }
     }
 </script>

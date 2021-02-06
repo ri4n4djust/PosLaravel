@@ -54,7 +54,8 @@ class supplierController extends Controller
                 'nmSupplier'     => $request->input('nmSupplier'),
                 'almtSupplier'   => $request->input('almtSupplier'),
                 'noHp'   => $request->input('noHp'),
-                'kontakSupplier'   => $request->input('kontakSupplier')
+                'kontakSupplier'   => $request->input('kontakSupplier'),
+                'tgl'   => $request->input('currentDateWithFormat')
             ]);
 
 

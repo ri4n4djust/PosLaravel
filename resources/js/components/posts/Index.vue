@@ -3,6 +3,7 @@
                     <div class="card-body">
                         <h3>
                         <router-link :to="{ name: 'create' }" class="btn btn-md btn-success">TAMBAH BARANG</router-link>
+                        <a @click.prevent="printInvoice" class="btn btn-md btn-success">Print</a>
                         </h3>
                             <table class="table table-hover table-bordered">
                                 <thead>
@@ -80,6 +81,10 @@
         
 
         methods: {
+
+            printInvoice(){ 
+                window.print()
+            },
             
             PostDelete(id, index)
             {

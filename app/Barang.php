@@ -10,7 +10,7 @@ class Barang extends Model
     protected $table = 'tblBarang';
 
     protected $fillable = [
-        'nmBarang', 'hrgPokok', 'hrgJual', 'stkBarang', 'deskripsi', 'gmbrBarang', 'ktgBarang', 'satuanBarang', 
-        'merek', 'qtyMin', 'qtyMax', 'kdBarang'
+        'kdBarang','nmBarang', 'hrgPokok', 'hrgJual', 'stkBarang', 'deskripsi', 'gmbrBarang', 'ktgBarang', 'satuanBarang', 
+        'merek', 'qtyMin', 'qtyMax', 'kdBarang', 'tgl'
     ];
 }

@@ -60,7 +60,8 @@ class salesController extends Controller
                 'satuanBarang' => $request->input('satuanBarang'),
                 'merek' => $request->input('merek'),
                 'qtyMin' => $request->input('qtyMin'),
-                'qtyMax' => $request->input('qtyMax')
+                'qtyMax' => $request->input('qtyMax'),
+                'tgl' => $request->input('tgl')
             ]);
 
 

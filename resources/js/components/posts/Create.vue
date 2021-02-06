@@ -11,7 +11,7 @@
 
                             <div class="form-group">
                                 <label>Kode Barang</label>
-                                <input type="text" ref="kodebarang" class="form-control" v-model="post.kdBarang">
+                                <input type="text" class="form-control" v-model="post.kdBarang">
                                 <div v-if="validation.kdBarang">
                                     <div class="alert alert-danger mt-1" role="alert">
                                         {{ validation.kdBarang[0] }}
@@ -126,6 +126,9 @@
                                 </div>
                             </div>
 
+                            <div class="form-group">
+<datepicker class="form-control" v-model="currentDateWithFormat" name="tgl" ></datepicker>
+                            </div>
 
                             <div class="form-group">
                                 <label>KONTEN</label>
@@ -208,6 +211,8 @@
 
 
 <script>
+import Datepicker from 'vuejs-datepicker';
+
     export default {
         data() {
             return {
@@ -217,14 +222,25 @@
                 country: 0,
                 countries: [],
                 total: {},
+                currentDateWithFormat: '',
                 
             }
             
+        },
+        components: {
+            Datepicker
         },
         
         
 
         methods: {
+            
+            callFunction() {
+            var currentDateWithFormat = new Date().toJSON().slice(0,10).replace(/-/g,'/');
+            this.currentDateWithFormat = currentDateWithFormat;
+            alert(currentDateWithFormat);
+            
+            },
             PostStore() {
                 let uri = '/api/posts/store';
                 this.axios.post(uri, this.post)
@@ -273,8 +289,9 @@
         created: function(){
             this.getCountries()
             this.loadData()
+            this.callFunction()
         }
-        }
+    }
     
 </script>
 
